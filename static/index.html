@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Second Degree</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+// Colour and spacing tokens.
+tailwind.config = { theme: { extend: {
+  colors: {
+    "surface": "#faf8ff", "surface-container-lowest": "#ffffff", "surface-container-low": "#f2f3ff",
+    "surface-container": "#eaedff", "surface-container-high": "#e2e7ff",
+    "on-surface": "#131b2e", "on-surface-variant": "#434655", "outline": "#737686", "outline-variant": "#c3c6d7",
+    "primary": "#004ac6", "cobalt": "#2563eb", "primary-fixed": "#dbe1ff", "secondary": "#515f74",
+    "line": "#E2E8F0", "line-soft": "#F1F5F9", "rust": "#BE123C"
+  },
+  borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem" },
+  fontFamily: { sans: ["Inter", "system-ui", "sans-serif"], mono: ["JetBrains Mono", "ui-monospace", "monospace"] }
+} } };
+</script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: Inter, system-ui, sans-serif; font-size: 13px; line-height: 20px;
+         font-feature-settings: "cv02", "cv03", "cv04", "cv11", "tnum"; }
+  .mono-lg   { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; line-height: 18px; font-weight: 500; }
+  .mono-md   { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 11px; line-height: 16px; }
+  .mono-caps { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 10px; line-height: 14px; font-weight: 600;
+               letter-spacing: 0.08em; text-transform: uppercase; }
+  .card { background: #fff; border: 1px solid #E2E8F0; border-radius: 4px; }
+  .seg { padding: 3px 10px; border-radius: 3px; color: #434655; border: 1px solid transparent; }
+  .seg:hover { color: #131b2e; }
+  .seg.on { background: #fff; color: #004ac6; font-weight: 600; border-color: #c3c6d7; }
+  .chip { padding: 2px 9px; border: 1px solid #E2E8F0; background: #F1F5F9; color: #475569; border-radius: 4px; }
+  .chip:hover { border-color: #CBD5E1; }
+  .chip.on { background: #EFF6FF; border-color: #2563EB; color: #1D4ED8; }
+  .chip.amber { background: #FFFBEB; border-color: #FCD34D; color: #92400E; }
+  .field { background: #fff; border: 1px solid #E2E8F0; border-radius: 4px; padding: 3px 8px; outline: none; }
+  .field:focus, .field:focus-within { border-color: #2563EB; }
+  .btn { padding: 3px 10px; border: 1px solid #E2E8F0; border-radius: 4px; background: #fff; }
+  .btn:hover { background: #F8FAFC; border-color: #CBD5E1; }
+  .btn.primary { background: #2563EB; border-color: #2563EB; color: #fff; }
+  .btn.primary:hover { background: #1D4ED8; }
+  .btn:disabled { opacity: .45; cursor: not-allowed; }
+  .pop { border: 1px solid #CBD5E1; box-shadow: 0 4px 12px -2px rgba(15,23,42,.06), 0 2px 4px -1px rgba(15,23,42,.03); }
+  button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid #2563EB; outline-offset: 2px; }
+  .map-bg { background-color: #F9FAFB; background-image: radial-gradient(#CBD5E1 1px, transparent 1px); background-size: 24px 24px; }
+  /* The map never pushes itself below the fold: it scales down to the window height. */
+  #map svg { display: block; width: 100%; height: auto; max-height: max(330px, calc(100vh - 268px)); }
+  .node { cursor: pointer; }
+  .node:hover circle.hull { stroke: #2563eb; }
+  .node .rm { opacity: 0; }
+  .node:hover .rm { opacity: 1; }
+  .node .rm:hover { fill: #BE123C; }
+  tr.row { cursor: pointer; }
+  tr.row:hover td { background: #F8FAFC; }
+  tr.row.sel td { background: #F0F7FF; }
+  tr.row.sel td:first-child { box-shadow: inset 2px 0 0 #2563EB; }
+  #workspace { scroll-margin-top: 104px; }
+  input[type=number]::-webkit-inner-spin-button { opacity: .4; }
+  #landing { display: none; }
+  body.landing #landing { display: flex; }
+  body.landing > header, body.landing > main, body.landing > footer { display: none; }
+  body.landing #companyBox { flex: 1; }
+  body.landing #companyInput { width: 100%; font-size: 15px; padding-top: 10px; padding-bottom: 10px; }
+  body.landing #companyMenu { width: 100%; }
+  body.landing #pasteOpen { padding-left: 16px; padding-right: 16px; }
+</style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+
+<!-- Landing: shown when the URL names no company and no cap table -->
+<section id="landing" class="min-h-screen flex-col items-center justify-center gap-6 px-4 py-12">
+  <div class="flex flex-col items-center gap-3 text-center">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#004ac6" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+      <circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="12" r="2.5"/>
+      <path d="M7 6c6 0 5 6 9.5 6M7 18c6 0 5-6 9.5-6"/>
+    </svg>
+    <h1 class="text-[32px] leading-[40px] font-semibold tracking-tight">Second Degree</h1>
+    <p class="text-[15px] text-on-surface-variant">The investors your co-investors know</p>
+  </div>
+  <div id="landingSearch" class="w-full max-w-[560px] flex flex-col sm:flex-row items-stretch gap-2"></div>
+  <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 mono-md">
+    <a class="text-cobalt hover:underline" href="?company=Davis+AI">Davis AI</a>
+    <a class="text-cobalt hover:underline" href="?company=Primer">Primer</a>
+    <a class="text-cobalt hover:underline" href="?company=Aiven">Aiven</a>
+  </div>
+</section>
+
+<!-- Top bar: company, viewpoint, round settings, type switches, the reach-fit slider -->
+<header class="sticky top-0 z-40 bg-white border-b border-line">
+  <div class="max-w-[1440px] mx-auto px-6 min-h-[46px] py-1.5 flex flex-wrap items-center gap-x-4 gap-y-1.5">
+    <a href="/" class="flex items-center gap-2 rounded hover:opacity-80" title="Start page">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#004ac6" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="12" r="2.5"/>
+        <path d="M7 6c6 0 5 6 9.5 6M7 18c6 0 5-6 9.5-6"/>
+      </svg>
+      <span class="text-[16px] font-semibold tracking-tight whitespace-nowrap">Second Degree</span>
+      <span class="hidden lg:inline text-on-surface-variant whitespace-nowrap">The investors your co-investors know</span>
+    </a>
+    <div id="companySlot" class="flex items-center gap-2">
+      <label for="companyInput" class="mono-caps text-outline">Company</label>
+      <div id="companyBox" class="relative">
+        <input id="companyInput" class="field w-44 text-[13px]" placeholder="Type a company name" autocomplete="off" spellcheck="false"
+               role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="companyMenu"/>
+        <div id="companyMenu" role="listbox" class="pop hidden absolute left-0 top-full mt-1 w-[400px] max-h-[340px] overflow-y-auto bg-white rounded z-50"></div>
+      </div>
+      <button type="button" id="pasteOpen" class="btn mono-md">Paste or upload cap table</button>
+    </div>
+    <div class="relative ml-auto">
+      <button type="button" id="filtersOpen" class="btn mono-md" aria-expanded="false" aria-controls="filtersPop">Filters <span id="filtersBadge" class="text-outline"></span></button>
+      <div id="filtersPop" class="pop hidden absolute right-0 top-full mt-1 w-[420px] bg-white rounded z-50 p-4 flex-col gap-4">
+        <div class="flex flex-col gap-2">
+          <span class="mono-caps text-outline">Include</span>
+          <div id="typeSwitches" class="flex flex-wrap items-center gap-1 mono-md"></div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <span class="mono-caps text-outline">Rank by</span>
+          <div class="flex items-center gap-2">
+            <span class="mono-md font-medium">Reach</span>
+            <input id="balanceInput" type="range" min="0" max="100" step="5" class="flex-1 accent-[#2563eb] cursor-pointer" aria-label="Balance between reach and fit"/>
+            <span class="mono-md font-medium">Fit</span>
+            <span id="balanceVal" class="mono-md text-outline w-[62px] text-right"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-line-soft">
+    <div class="max-w-[1440px] mx-auto px-6 py-1.5 flex flex-wrap items-center gap-x-6 gap-y-1.5">
+      <div class="flex items-center gap-2">
+        <span class="mono-caps text-outline">Round</span>
+        <div id="roundType" class="flex items-center bg-surface-container-low p-0.5 rounded border border-line mono-md">
+          <button type="button" class="seg" data-round="pre_seed">Pre-seed</button>
+          <button type="button" class="seg" data-round="seed">Seed</button>
+          <button type="button" class="seg" data-round="series_a">Series A</button>
+          <button type="button" class="seg" data-round="series_b">Series B</button>
+          <button type="button" class="seg" data-round="bridge">Bridge</button>
+        </div>
+        <label class="field flex items-center gap-1 mono-md" title="Target round size, in millions of euros">
+          <span class="text-outline">€</span>
+          <input id="sizeInput" type="number" min="0" step="0.5" class="w-14 bg-transparent text-right text-on-surface" style="outline:none" aria-label="Round size in millions of euros"/>
+          <span class="text-outline">M</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer select-none ml-1">
+          <span class="relative inline-block">
+            <input id="leadInput" type="checkbox" class="sr-only peer"/>
+            <span class="block w-8 h-4 bg-outline-variant rounded-full peer-checked:bg-cobalt transition-colors"></span>
+            <span class="absolute top-[2px] left-[2px] w-3 h-3 bg-white rounded-full transition-transform peer-checked:translate-x-4"></span>
+          </span>
+          <span class="mono-md font-medium">Lead needed</span>
+        </label>
+      </div>
+      <label class="field flex items-center gap-1 !py-0 !pr-0">
+        <span class="mono-caps text-outline">Sector</span>
+        <select id="sectorSelect" class="mono-md bg-transparent cursor-pointer w-[170px] py-[5px]" style="outline:none"><option value="any">Any</option></select>
+      </label>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Header line with the round summary -->
+  <section class="bg-white border-b border-line">
+    <div id="summary" class="max-w-[1440px] mx-auto px-6 py-2 min-h-[44px]"></div>
+  </section>
+
+  <div id="notice" class="max-w-[1440px] mx-auto px-6 pt-3 hidden"></div>
+
+  <!-- Map and dossier -->
+  <section id="workspace" class="max-w-[1440px] mx-auto px-6 py-8 grid grid-cols-12 gap-8 items-start">
+    <div class="col-span-12 xl:col-span-7 card p-6">
+      <div class="flex items-center justify-between gap-3 pb-3 flex-wrap">
+        <div class="flex items-center gap-3 whitespace-nowrap">
+          <h3 class="text-[14px] font-semibold">Warm paths</h3>
+          <span id="viewerChip"></span>
+        </div>
+        <div id="viewerBar" class="flex items-center gap-1 mono-md" role="group" aria-label="Which paths to show"></div>
+      </div>
+      <div id="map" class="map-bg rounded border border-line-soft overflow-hidden select-none"></div>
+      <div id="mapFoot" class="mt-2 flex flex-col gap-2 mono-md text-outline"></div>
+    </div>
+    <div id="side" class="col-span-12 xl:col-span-5 flex flex-col gap-3 min-w-0"></div>
+  </section>
+
+  <!-- Ranked table -->
+  <section class="max-w-[1440px] mx-auto px-6 pb-8">
+    <div class="card p-6">
+      <div class="flex items-baseline gap-2 pb-3">
+        <h3 class="text-[14px] font-semibold">Ranked intro asks</h3>
+        <button type="button" id="exportCsv" class="btn mono-md ml-auto self-center">Export CSV</button>
+      </div>
+      <div id="ranked" class="overflow-x-auto"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-line bg-white">
+  <div class="max-w-[1440px] mx-auto px-6 py-3 flex items-center justify-between text-on-surface-variant">
+    <span id="footerLine">Based on publicly announced funding rounds from Cala.</span>
+    <span id="footerStats" class="mono-md text-outline"></span>
+  </div>
+</footer>
+
+<!-- Paste a cap table -->
+<div id="pasteModal" class="fixed inset-0 z-50 hidden items-start justify-center pt-12" style="background:rgba(15,23,42,.25)">
+  <div class="bg-white rounded-lg w-[580px] max-w-[92vw] p-4 flex flex-col gap-3" style="border:1px solid #94A3B8" role="dialog" aria-modal="true" aria-labelledby="pasteTitle">
+    <div class="flex items-center justify-between">
+      <h3 id="pasteTitle" class="text-[16px] font-semibold">Paste or upload a cap table</h3>
+      <button type="button" id="pasteClose" class="text-outline hover:text-on-surface text-[18px] leading-none px-1" aria-label="Close">×</button>
+    </div>
+    <p id="pasteHint" class="text-on-surface-variant">One investor per line, or separated by commas or semicolons. Each name is matched to an investor in the graph.</p>
+    <label class="flex items-center gap-2"><span class="mono-caps text-outline w-20">Company</span>
+      <input id="pasteCompany" class="field flex-1" placeholder="Company name (optional)" autocomplete="off"/></label>
+    <textarea id="pasteText" rows="5" class="field font-mono text-[12px] leading-5" placeholder="Lifeline Ventures&#10;Voima Ventures&#10;Tesi" spellcheck="false"></textarea>
+    <div class="flex items-center gap-2">
+      <label class="btn mono-md cursor-pointer">Upload CSV, XLSX or PDF<input id="pasteFile" type="file" accept=".csv,.xlsx,.pdf,text/csv,application/pdf,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" class="sr-only"/></label>
+      <span id="pasteFileName" class="mono-md text-outline truncate"></span>
+    </div>
+    <div id="pasteResult" class="flex flex-wrap gap-1 mono-md min-h-[22px] overflow-y-auto" style="max-height:22vh"></div>
+    <div class="flex items-center justify-between gap-2">
+      <span id="pasteCount" class="mono-md text-outline"></span>
+      <button type="button" id="pasteUse" class="btn primary mono-lg whitespace-nowrap shrink-0" disabled>Use this cap table</button>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+// ---------------------------------------------------------------- constants
+const TYPE_LABEL = { fund: "Fund", public: "Public funder", pension: "Pension fund",
+                     university: "University", corporate: "Corporate", angel: "Angel" };
+const ROUND_LABEL = { pre_seed: "Pre-seed", seed: "Seed", series_a: "Series A", series_b: "Series B", bridge: "Bridge" };
+const SWITCHES = [["fund", "Funds"], ["public", "Public funders"], ["pension", "Pension funds"],
+                  ["university", "Universities"], ["corporate", "Corporates"], ["angel", "Angels"]];
+const PATHS = [["all", "All"], ["direct", "Direct"], ["via", "Through co-investors"]];
+const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const MAP_TARGETS = 8;
+const COBALT = "#2563eb", GREY_LINE = "#CBD5E1", SLATE = "#515f74";
+
+// ---------------------------------------------------------------- state
+const q = new URLSearchParams(location.search);
+const state = {
+  company: q.get("company") || "",
+  capNames: q.get("cap") ? q.get("cap").split(";").filter(Boolean) : null,   // graph keys; null = as read from the graph
+  unmatched: [],                       // pasted names that are not in the graph
+  round: { type: ROUND_LABEL[q.get("type")] ? q.get("type") : "series_a",
+           size_eur: q.has("size") ? (Number(q.get("size")) || null) : 8000000,
+           lead_needed: q.has("lead") ? q.get("lead") === "1" : true },
+  sector: q.get("sector") || null,     // a sector id, "any", or null = the company's own tag
+  draft: null,                         // {key, text}: the open intro draft, kept across renders
+  balance: q.has("balance") ? Math.min(1, Math.max(0, Number(q.get("balance")) || 0)) : 0.5,
+  types: new Set((q.get("types") || "fund").split(",").filter(t => TYPE_LABEL[t])),
+  top: 25,
+  viewer: q.get("viewer") || null,     // graph key of the existing investor the user works for
+  pathFilter: ["direct", "via"].includes(q.get("path")) ? q.get("path") : "all",
+  mode: q.get("insider") ? "insider" : "target",
+  selTarget: q.get("sel"), selInsider: q.get("insider"),
+  moreInsiders: false,                 // the list of existing investors not on the map is open
+};
+if (!state.types.size) state.types.add("fund");
+let cap = null;      // GET /api/captable, when the company is in the graph
+let res = null;      // POST /api/xray
+let seq = 0;
+let companies = [];
+
+// ---------------------------------------------------------------- helpers
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const trunc = (s, n) => (s && s.length > n ? s.slice(0, n - 1).trimEnd() + "…" : s || "");
+const ymd = d => (d ? d.slice(0, 10) : "–");
+const monYear = d => (d ? MON[+d.slice(5, 7) - 1] + " " + d.slice(0, 4) : "–");
+const roundName = l => (l ? l.replace(/_/g, " ").toLowerCase().replace(/(^|\s)\w/g, c => c.toUpperCase()).replace("Pre Seed", "Pre-seed") : "–");
+const plural = (n, one, many) => n + " " + (n === 1 ? one : (many || one + "s"));
+const typeLabel = t => TYPE_LABEL[t] || t || "";
+
+function short(amount) {
+  if (amount >= 1e9) return (amount / 1e9).toFixed(1) + "B";
+  if (amount >= 1e6) return (amount / 1e6).toFixed(1) + "M";
+  if (amount >= 1e3) return Math.round(amount / 1e3) + "K";
+  return String(Math.round(amount));
+}
+function money(amount, currency) {
+  if (amount == null) return "–";
+  const sym = { EUR: "€", USD: "$", GBP: "£" }[currency];
+  return sym ? sym + short(amount) : (currency ? currency + " " : "") + short(amount);
+}
+function initials(name) {
+  const w = (name || "?").replace(/[^\p{L}\p{N} ]/gu, " ").split(/\s+/).filter(Boolean);
+  return ((w[0] || "?")[0] + (w[1] ? w[1][0] : (w[0] || "")[1] || "")).toUpperCase();
+}
+function monthsSince(d) {
+  if (!d) return null;
+  const now = new Date();
+  return (now.getFullYear() - +d.slice(0, 4)) * 12 + (now.getMonth() + 1 - +d.slice(5, 7));
+}
+function roundSummary() {
+  const r = state.round;
+  return (r.size_eur ? "€" + short(r.size_eur) + " " : "") + ROUND_LABEL[r.type];
+}
+const companyName = () => (cap ? cap.company : (state.company || "Pasted cap table"));
+const balanceText = () => Math.round((1 - state.balance) * 100) + "% / " + Math.round(state.balance * 100) + "%";
+async function api(path, body) {
+  const r = await fetch(path, body ? { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) } : undefined);
+  if (!r.ok) {
+    let detail = "";
+    try { detail = (await r.json()).detail; } catch (e) {}
+    const err = new Error(typeof detail === "string" && detail ? detail : "HTTP " + r.status);
+    err.status = r.status;
+    throw err;
+  }
+  return r.json();
+}
+const linkIcon = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>';
+
+// ---------------------------------------------------------------- data flow
+async function loadCompany() {
+  const id = ++seq;
+  cap = null; res = null;
+  if (state.company) {
+    try {
+      const c = await api("/api/captable?company=" + encodeURIComponent(state.company));
+      if (id !== seq) return;
+      cap = c;
+    } catch (e) {
+      if (id !== seq) return;
+      if (!state.capNames) {              // a pasted cap table does not need the company to be in the graph
+        render();
+        notice(e.status === 404
+          ? "“" + state.company + "” is not in the cached graph. Pick a company from the list, or paste its cap table."
+          : "Could not read the cap table: " + e.message, true);
+        return;
+      }
+    }
+  }
+  await refresh();
+}
+
+// rerank = a control changed, so the dossier moves to the new top ask
+async function refresh(rerank) {
+  if (!cap && !state.capNames) return;
+  const id = ++seq;
+  try {
+    const out = await api("/api/xray", {
+      company: state.company || null, cap_names: state.capNames,
+      round: Object.assign({}, state.round, { sector: state.sector }),   // null or "any": the engine uses the company's tag
+      balance: state.balance, include_types: [...state.types], top: state.top,
+      viewer: state.viewer, path_filter: state.viewer ? state.pathFilter : "all" });
+    if (id !== seq) return;
+    res = out;
+    loadResearched();
+    if (rerank === true) state.selTarget = null;
+    notice(null);
+    render();
+  } catch (e) {
+    if (id === seq) notice("Could not compute the intro plan: " + e.message, true);
+  }
+}
+let timer = null;
+function refreshSoon(ms) { clearTimeout(timer); timer = setTimeout(() => refresh(true), ms); }
+
+function notice(text, bad) {
+  const n = $("notice");
+  n.classList.toggle("hidden", !text);
+  n.innerHTML = text ? '<div class="card px-3 py-2 ' + (bad ? "text-rust" : "text-on-surface-variant") + '">' + esc(text) + "</div>" : "";
+}
+
+// Keep the selection and the viewpoint valid for the result on screen.
+function reconcile() {
+  const targets = res ? res.targets : [];
+  if (!targets.some(t => t.key === state.selTarget)) state.selTarget = targets.length ? targets[0].key : null;
+  if (state.mode === "insider" && !(res && res.cap_table.some(c => c.key === state.selInsider))) {
+    state.mode = "target"; state.selInsider = null;
+  }
+  if (res && !res.viewer) { state.viewer = null; state.pathFilter = "all"; }   // the viewer left the cap table
+}
+
+function syncUrl() {
+  const p = new URLSearchParams();
+  if (state.company) p.set("company", state.company);
+  if (state.capNames) p.set("cap", state.capNames.join(";"));
+  p.set("type", state.round.type);
+  if (state.round.size_eur) p.set("size", state.round.size_eur);
+  p.set("lead", state.round.lead_needed ? "1" : "0");
+  if (state.sector) p.set("sector", state.sector);
+  p.set("types", [...state.types].join(","));
+  p.set("balance", state.balance);
+  if (state.viewer) { p.set("viewer", state.viewer); p.set("path", state.pathFilter); }
+  if (state.mode === "insider" && state.selInsider) p.set("insider", state.selInsider);
+  else if (state.selTarget) p.set("sel", state.selTarget);
+  history.replaceState(null, "", "?" + p.toString());
+}
+
+// ---------------------------------------------------------------- render
+function render() {
+  reconcile();
+  renderSummary(); renderViewer(); renderSector(); renderMap(); renderSide(); renderTable();
+  $("footerLine").textContent = (res && res.footer) || "Based on publicly announced funding rounds from Cala.";
+  $("footerStats").textContent = res ? res.stats.rounds_in_graph + " rounds · " + res.stats.investors_in_graph + " investors in the graph" : "";
+  syncUrl();
+}
+
+function renderSummary() {
+  const name = companyName();
+  const s = res && res.summary;
+  $("summary").innerHTML =
+    '<div class="flex items-center justify-between gap-x-6 gap-y-1 flex-wrap">' +
+      '<div class="flex items-center gap-3 flex-wrap">' +
+        '<h1 class="text-[20px] leading-7 font-semibold tracking-tight">' + esc(name) + ": " + esc(roundSummary()) + "</h1>" +
+        (state.round.lead_needed ? '<span class="px-2 py-0.5 rounded bg-surface-container mono-md font-medium">Lead needed</span>' : "") +
+      "</div>" +
+      (s ? '<div id="viewerSummary" class="mono-md text-secondary whitespace-nowrap">' + (res.viewer
+        ? '<span class="text-primary font-semibold">' + s.direct + "</span> direct · " + '<span class="text-on-surface font-semibold">' + s.via + "</span> through co-investors"
+        : '<span class="text-on-surface font-semibold">' + s.candidates + "</span> candidates") + "</div>" : "") +
+    "</div>";
+}
+
+// The viewpoint: a chip above the map ("All existing investors" or "Viewing as X ×"), and the path chips.
+function renderViewer() {
+  const on = !!(res && res.viewer);
+  $("viewerChip").innerHTML = on
+    ? '<span class="chip on inline-flex items-center gap-1.5 mono-md">Viewing as ' + esc(res.viewer) +
+      '<button type="button" data-clear-viewer="1" class="text-[15px] leading-none hover:text-rust" aria-label="Stop viewing as ' + esc(res.viewer) + '">×</button></span>'
+    : '<span class="chip mono-md">All existing investors</span>';
+  $("viewerBar").innerHTML = on
+    ? PATHS.map(([k, label]) => '<button type="button" class="chip ' + (state.pathFilter === k ? "on" : "") + '" data-path="' + k +
+        '" aria-pressed="' + (state.pathFilter === k) + '">' + label + "</button>").join("")
+    : "";
+}
+function setViewer(key) {
+  state.viewer = key || null;
+  if (!state.viewer) state.pathFilter = "all";
+  state.mode = "target"; state.selInsider = null;
+  refresh(true);
+}
+
+// The sector dropdown: preselected with the sector the engine used (the company's own tag unless one was chosen).
+function renderSector() {
+  const sel = $("sectorSelect");
+  if (!res) return;
+  sel.innerHTML = '<option value="any">Any</option>' +
+    res.sectors.map(s => '<option value="' + esc(s.id) + '">' + esc(s.label) + "</option>").join("");
+  sel.value = state.sector || (res.sector && res.sector.id) || "any";
+}
+
+// ---- the map: existing investors left, top targets right, one curve per warm path
+function renderMap() {
+  const el = $("map");
+  renderMapFoot();
+  if (!res || !res.targets.length) {
+    el.innerHTML = '<div class="h-[380px] flex items-center justify-center text-on-surface-variant px-6 text-center">' +
+      (res ? (res.viewer && state.pathFilter !== "all" ? "No targets on this path for these settings. Try “All”." : "No warm paths for these settings. Include more investor types.") : "") + "</div>";
+    return;
+  }
+  const vw = !!res.viewer;
+  const top = res.targets.slice(0, MAP_TARGETS);
+  const sel = res.targets.find(t => t.key === state.selTarget);
+  // Below the top 8: the selected target, or the asks of the selected existing investor.
+  let extras = [];
+  if (state.mode === "target") extras = sel && sel.rank > MAP_TARGETS ? [sel] : [];
+  else {
+    const who = res.cap_table.find(c => c.key === state.selInsider);
+    extras = res.targets.filter(t => t.rank > MAP_TARGETS && who && who.asks.includes(t.name)).slice(0, 6);
+  }
+  const tNodes = top.concat(extras);
+
+  const iNodes = mapInsiders(tNodes);
+
+  const W = 760, XL = 216, XR = 508, RI = 17, RT = 19, PAD = 18;
+  const H = Math.max(420, 2 * PAD + Math.max(tNodes.length * 52, iNodes.length * 44));
+  const yOf = (i, n) => PAD + (H - 2 * PAD) * (i + 0.5) / n;
+  const iy = new Map(iNodes.map((c, i) => [c.key, yOf(i, iNodes.length)]));
+  const ty = new Map(tNodes.map((t, i) => [t.key, yOf(i, tNodes.length)]));
+
+  const lines = [];
+  tNodes.forEach(t => t.reach.via.forEach(v => {
+    if (!iy.has(v.insider_key)) return;
+    const n = v.shared_companies.length || 1;
+    const active = state.mode === "insider" ? v.insider_key === state.selInsider : t.key === state.selTarget;
+    lines.push({ t, v, n, active, mine: v.is_viewer, x1: XL + RI, y1: iy.get(v.insider_key), x2: XR - RT, y2: ty.get(t.key),
+                 w: Math.min(1.5 + (n - 1) * 1.25, 7) });
+  }));
+  const path = l => { const dx = (l.x2 - l.x1) * 0.5; return "M " + l.x1 + " " + l.y1 + " C " + (l.x1 + dx) + " " + l.y1 + ", " + (l.x2 - dx) + " " + l.y2 + ", " + l.x2 + " " + l.y2; };
+  const at = (l, s) => {   // point on the curve at parameter s
+    const dx = (l.x2 - l.x1) * 0.5, u = 1 - s;
+    const bx = u * u * u * l.x1 + 3 * u * u * s * (l.x1 + dx) + 3 * u * s * s * (l.x2 - dx) + s * s * s * l.x2;
+    const by = u * u * u * l.y1 + 3 * u * u * s * l.y1 + 3 * u * s * s * l.y2 + s * s * s * l.y2;
+    return [bx, by];
+  };
+  // All existing investors: the selection is cobalt, the rest grey.
+  // With a viewer: your own paths are solid cobalt, co-investors' paths dashed slate; the selection is the strong one.
+  const draw = l => {
+    let stroke, opacity, dash = "";
+    if (vw) {
+      stroke = l.mine ? COBALT : (l.active ? "#334155" : "#64748B");
+      opacity = l.active ? 0.95 : (l.mine ? 0.34 : 0.42);
+      if (!l.mine) dash = ' stroke-dasharray="6 4"';
+    } else { stroke = l.active ? COBALT : GREY_LINE; opacity = l.active ? 0.92 : 0.75; }
+    return '<path d="' + path(l) + '" fill="none" stroke="' + stroke + '" stroke-width="' + (vw && !l.mine ? Math.min(l.w, 4) : l.w) +
+      '" stroke-linecap="' + (dash ? "butt" : "round") + '" opacity="' + opacity + '"' + dash + ' data-kind="' + (l.mine ? "direct" : "via") + '"' + (l.active ? ' data-active="1"' : "") + "/>";
+  };
+  let svg = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Warm paths from existing investors to targets">';
+  lines.filter(l => !l.active).forEach(l => { svg += draw(l); });
+  lines.filter(l => l.active).forEach(l => { svg += draw(l); });
+  // Labels sit where the highlighted curves are furthest apart: near the fan's wide end.
+  const s = state.mode === "insider" ? 0.72 : 0.28;
+  lines.filter(l => l.active).forEach(l => {
+    const [x, y] = at(l, s), text = l.n + " shared", w = text.length * 5.6 + 10, ink = vw && !l.mine ? "#334155" : "#004ac6";
+    svg += '<g pointer-events="none"><rect x="' + (x - w / 2) + '" y="' + (y - 8) + '" width="' + w + '" height="16" rx="3" fill="#fff" stroke="#c3c6d7"/>' +
+      '<text x="' + x + '" y="' + (y + 3.5) + '" text-anchor="middle" font-family="JetBrains Mono" font-size="9" font-weight="600" fill="' + ink + '">' + esc(text) + "</text>" +
+      "<title>" + esc(l.v.insider + " and " + l.t.name + ": " + l.v.shared_companies.join(", ")) + "</title></g>";
+  });
+  if (extras.length) {
+    const y = (ty.get(top[top.length - 1].key) + ty.get(extras[0].key)) / 2;
+    svg += '<line x1="' + (XR - 40) + '" x2="' + (W - 12) + '" y1="' + y + '" y2="' + y + '" stroke="#c3c6d7" stroke-dasharray="2 4"/>';
+  }
+  const canRemove = res.cap_table.length > 1;
+  iNodes.forEach(c => {
+    const y = iy.get(c.key), on = state.mode === "insider" && state.selInsider === c.key;
+    const linked = state.mode === "target" && sel && sel.reach.via.some(v => v.insider_key === c.key);
+    const you = c.is_viewer;
+    const tip = c.name + (you ? " (you)" : "") + " · " + typeLabel(c.type) + "\n" + (you ? c.asks.length + " direct" : plural(c.asks.length, "ask")) +
+      " · " + plural(c.rounds, "round") + " · led " + c.led + " · latest round " + monYear(c.latest_round);
+    svg += '<g class="node" data-insider="' + esc(c.key) + '" transform="translate(' + XL + "," + y + ')"><title>' + esc(tip) + "</title>" +
+      '<rect x="' + (-XL) + '" y="-20" width="' + (XL + RI) + '" height="40" fill="transparent"/>' +
+      '<circle class="hull" r="' + RI + '" fill="' + (you ? COBALT : on ? "#dbe1ff" : "#fff") + '" stroke="' + (you || on || linked ? COBALT : "#737686") + '" stroke-width="' + (on ? 2.5 : linked ? 2 : 1.5) + '"/>' +
+      (on && you ? '<circle r="' + (RI + 4) + '" fill="none" stroke="' + COBALT + '" stroke-width="1.5"/>' : "") +
+      '<text y="' + (you ? 3.5 : 4) + '" text-anchor="middle" font-family="JetBrains Mono" font-size="' + (you ? 9 : 10) + '" font-weight="600" fill="' + (you ? "#fff" : on || linked ? "#004ac6" : "#515f74") + '">' + (you ? "YOU" : esc(initials(c.name))) + "</text>" +
+      '<text x="' + (-RI - 9) + '" y="4" text-anchor="end" font-family="Inter" font-size="12" font-weight="600" fill="#131b2e">' + esc(trunc(c.name, 27)) + "</text>" +
+      (canRemove ? '<text class="rm" data-remove="' + esc(c.key) + '" x="' + (10 - XL) + '" y="5" font-family="Inter" font-size="15" fill="#737686"><title>Remove ' + esc(c.name) + " from the cap table</title>×</text>" : "") +
+      "</g>";
+  });
+  tNodes.forEach(t => {
+    const y = ty.get(t.key), on = state.mode === "target" && t.key === state.selTarget;
+    const linked = state.mode === "insider" && t.reach.via.some(v => v.insider_key === state.selInsider);
+    const how = vw && t.path.kind === "direct" ? "direct" : "via " + (t.path.introducer || t.reach.best_introducer);
+    const tip = "#" + t.rank + " " + t.name + " · reach " + t.reach.score + " · fit " + t.fit.score + " · score " + t.score;
+    svg += '<g class="node" data-target="' + esc(t.key) + '" transform="translate(' + XR + "," + y + ')"><title>' + esc(tip) + "</title>" +
+      '<circle class="hull" r="' + RT + '" fill="' + (on ? "#dbe1ff" : "#fff") + '" stroke="' + (on || linked ? COBALT : "#737686") + '" stroke-width="' + (on ? 2.5 : linked ? 2 : 1.5) + '"/>' +
+      '<text y="4" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="600" fill="' + (on || linked ? "#004ac6" : "#434655") + '">' + t.score + "</text>" +
+      '<text x="' + (RT + 9) + '" y="-2" font-family="Inter" font-size="13" font-weight="600" fill="#131b2e">' + esc(trunc(t.name, 30)) + "</text>" +
+      '<text x="' + (RT + 9) + '" y="13" font-family="JetBrains Mono" font-size="10" fill="' + (how === "direct" ? "#004ac6" : "#737686") + '">' + esc(trunc(how, 34)) + "</text></g>";
+  });
+  el.innerHTML = svg + "</svg>";
+}
+
+// The left column: existing investors with a line to a target on the map, plus the viewer, by number of lines.
+// At most MAP_INSIDERS rows; the selected investor always has one. The rest sit in the list under the map.
+const MAP_INSIDERS = 8;
+function mapInsiders(tNodes) {
+  const lines = new Map();
+  tNodes.forEach(t => t.reach.via.forEach(v => lines.set(v.insider_key, (lines.get(v.insider_key) || 0) + 1)));
+  let shown = res.cap_table.map((c, i) => ({ c, i, n: lines.get(c.key) || 0 }))
+    .filter(x => x.c.is_viewer || x.n > 0)
+    .sort((a, b) => (b.c.is_viewer ? 1 : 0) - (a.c.is_viewer ? 1 : 0) || b.n - a.n || a.i - b.i)
+    .map(x => x.c);
+  const pinned = state.mode === "insider" && shown.find(c => c.key === state.selInsider);
+  shown = shown.slice(0, MAP_INSIDERS);
+  if (pinned && !shown.includes(pinned)) shown[shown.length - 1] = pinned;
+  return shown;
+}
+
+// Under the map: the existing investors not on it, and the cap table edits (add back, not matched, reset).
+function renderMapFoot() {
+  const el = $("mapFoot");
+  if (!res) { el.innerHTML = ""; return; }
+  const top = res.targets.slice(0, MAP_TARGETS);
+  const onMap = new Set(res.targets.length ? mapInsiders(top).map(c => c.key) : []);
+  const hidden = res.cap_table.filter(c => !onMap.has(c.key));
+  const inCap = new Set(res.cap_table.map(c => c.key));
+  const left = cap ? cap.investors.filter(i => !inCap.has(i.key)) : [];
+  const missing = state.unmatched.concat(res.unmatched || []);
+  const canRemove = res.cap_table.length > 1;
+  const more = hidden.length
+    ? '<div><button type="button" data-more-insiders="1" class="text-primary hover:underline" aria-expanded="' + state.moreInsiders + '">' +
+        (state.moreInsiders ? "− " : "+ ") + plural(hidden.length, "more existing investor") + "</button>" +
+      (state.moreInsiders ? '<div class="mt-2 grid grid-cols-2 gap-x-6 border-t border-line-soft">' + hidden.map(c =>
+        '<div class="flex items-center justify-between gap-2 py-1 border-b border-line-soft">' +
+          '<button type="button" class="truncate text-left text-on-surface hover:text-primary" data-insider="' + esc(c.key) + '">' + esc(c.name) + "</button>" +
+          '<span class="flex items-center gap-2 whitespace-nowrap">' + plural(c.rounds, "round") +
+          (canRemove ? '<button type="button" class="text-[15px] leading-none hover:text-rust" data-remove="' + esc(c.key) + '" aria-label="Remove ' + esc(c.name) + ' from the cap table">×</button>' : "") +
+          "</span></div>").join("") + "</div>" : "") + "</div>"
+    : "";
+  const legend = res.viewer
+    ? '<span class="flex items-center gap-4"><span class="flex items-center gap-1.5"><span class="w-5 h-[3px] bg-cobalt rounded-full"></span>You</span>' +
+      '<span class="flex items-center gap-1.5"><svg width="20" height="4"><line x1="0" y1="2" x2="20" y2="2" stroke="#64748B" stroke-width="2" stroke-dasharray="5 3"/></svg>Co-investor</span></span>'
+    : "";
+  el.innerHTML = more + (legend || left.length || missing.length || (state.capNames && cap) ?
+    '<div class="flex items-center justify-between gap-x-4 gap-y-1 flex-wrap">' + legend +
+    '<span class="flex items-center gap-1 flex-wrap">' +
+      (left.length ? '<span class="mr-0.5">Not counted:</span>' + left.map(i =>
+        '<button type="button" class="chip" title="Add ' + esc(i.name) + ' to the cap table" data-add="' + esc(i.key) + '">+ ' + esc(trunc(i.name, 26)) +
+        ' <span class="text-outline">' + esc(typeLabel(i.type).toLowerCase()) + "</span></button>").join("") : "") +
+      (missing.length ? '<span class="ml-1 mr-0.5">Not in the graph:</span>' + missing.map(n =>
+        '<span class="chip amber" title="No investor with this name in the graph">' + esc(trunc(n, 26)) + "</span>").join("") : "") +
+      (state.capNames && cap ? '<button type="button" class="text-primary hover:underline ml-1" data-reset-cap="1">Reset cap table</button>' : "") +
+    "</span></div>" : "");
+}
+
+// ---- right panel: the dossier of a target, or the asks of an existing investor
+function barRow(label, value, pct, color) {
+  return '<div><div class="flex justify-between gap-3 mono-md"><span class="text-on-surface-variant">' + esc(label) +
+    '</span><span class="text-on-surface whitespace-nowrap">' + esc(value) + "</span></div>" +
+    '<div class="h-1 bg-surface-container rounded-full mt-1 overflow-hidden"><div class="h-1 rounded-full" style="width:' +
+    Math.max(0, Math.min(100, pct)) + "%;background:" + color + '"></div></div></div>';
+}
+
+function renderSide() {
+  const el = $("side");
+  if (!res) { el.innerHTML = ""; return; }
+  if (state.mode === "insider") { el.innerHTML = insiderPanel(res.cap_table.find(c => c.key === state.selInsider)); return; }
+  const t = res.targets.find(x => x.key === state.selTarget);
+  if (!t) { el.innerHTML = '<div class="card p-6 text-on-surface-variant">No target to show for these settings.</div>'; return; }
+  const r = t.reach, f = t.fit, nIns = res.cap_table.length, vw = !!res.viewer;
+  const open = state.draft && state.draft.key === t.key;
+  const age = monthsSince(r.latest_shared);
+  const recency = age != null && age <= 18 ? 100 : age != null && age <= 36 ? 80 : 60;
+  const reachBars =
+    barRow("Shared companies", r.shared_companies, 100 * (1 - Math.exp(-r.shared_companies / 2)), COBALT) +
+    barRow("Existing investors connected", r.insiders_connected + " of " + nIns, 100 * r.insiders_connected / nIns, COBALT) +
+    barRow("Latest shared round", monYear(r.latest_shared), recency, COBALT);
+  const p = f.parts;
+  const act = p.activity === 100 ? "yes" : p.activity === 50 ? "within 24 months" : "no";
+  const fitBars =
+    (p.size != null ? barRow("Rounds near " + "€" + short(state.round.size_eur || 0), p.size + "%", p.size, SLATE) : "") +
+    (p.stage != null ? barRow(ROUND_LABEL[state.round.type] + " stage rounds", p.stage + "%", p.stage, SLATE) : "") +
+    (p.lead != null ? barRow("Rounds led", p.lead + "%", p.lead, SLATE) : "") +
+    (p.sector != null ? barRow((res.sector.label || "Sector") + " rounds", f.sector_rounds + " of " + f.sector_tagged_rounds, p.sector, SLATE) : "") +
+    (p.activity != null ? barRow("Invested in the last 12 months", act, p.activity, SLATE) : "");
+  const score = (label, value, bars, note, color) =>
+    '<div class="bg-surface-container-low rounded p-3 flex flex-col gap-2 min-w-0">' +
+      '<div class="flex items-end justify-between"><span class="mono-caps text-secondary">' + label + "</span>" +
+      '<span class="flex items-baseline gap-0.5"><span class="font-mono text-[30px] leading-8 font-semibold" style="color:' + color + '">' + value +
+      '</span><span class="mono-md text-outline">/100</span></span></div>' + bars +
+      (note ? '<div class="mono-md text-outline">' + note + "</div>" : "") + "</div>";
+
+  const who = names => names.map(n => (vw && n === res.viewer ? "You" : n)).join(", ");
+  const rows = t.evidence.map(e =>
+    "<tr>" +
+      '<td class="py-1.5 px-2 font-medium break-words">' + esc(e.company || "–") + "</td>" +
+      '<td class="py-1.5 px-2"><span class="inline-block px-1.5 py-0.5 rounded bg-line-soft mono-md">' + esc(roundName(e.round)) + "</span>" +
+        (e.target_led ? ' <span class="mono-caps text-primary" title="' + esc(t.name) + ' led this round">led</span>' : "") + "</td>" +
+      '<td class="py-1.5 px-2 mono-md whitespace-nowrap">' + esc(ymd(e.date)) + "</td>" +
+      '<td class="py-1.5 px-2 mono-md whitespace-nowrap text-right">' + esc(money(e.amount, e.currency)) + "</td>" +
+      '<td class="py-1.5 px-2 text-primary break-words">' + esc(who(e.with)) + "</td>" +
+      '<td class="py-1.5 px-2 text-right">' + (e.sources && e.sources[0]
+        ? '<a class="inline-flex text-primary hover:text-cobalt" href="' + esc(e.sources[0]) + '" target="_blank" rel="noopener noreferrer" title="' + esc(e.sources[0]) + '" aria-label="Open the source for ' + esc(e.company || "this round") + '">' + linkIcon + "</a>"
+        : '<span class="text-outline" title="No source link in Cala">–</span>') + "</td>" +
+    "</tr>").join("");
+  const rec = (label, value) => '<div class="flex flex-col min-w-0"><span class="text-outline">' + label + '</span><span class="font-semibold text-on-surface">' + value + "</span></div>";
+  const typical = f.size_typical_low_eur != null && f.size_typical_high_eur != null
+    ? '<div class="flex flex-col min-w-0" title="Total size of the rounds they joined, middle half."><span class="text-outline">Typical round</span><span class="font-semibold text-on-surface">€' +
+      short(f.size_typical_low_eur) + (f.size_typical_high_eur !== f.size_typical_low_eur ? " – €" + short(f.size_typical_high_eur) : "") + "</span></div>"
+    : "";
+  const th = (label, cls) => '<th class="py-1.5 px-2 font-normal ' + (cls || "") + '">' + label + "</th>";
+
+  el.innerHTML =
+    '<div class="card p-6 flex flex-col gap-4">' +
+      "<div>" +
+        '<div class="flex items-center justify-between gap-2 mb-1.5 flex-wrap">' +
+          '<div class="flex items-center gap-1.5">' +
+            '<span class="px-1.5 py-0.5 rounded bg-primary text-white mono-caps">Rank #' + t.rank + "</span>" +
+            '<span class="px-1.5 py-0.5 rounded bg-surface-container text-primary mono-md font-medium">' + esc(typeLabel(t.type)) + "</span>" +
+            (vw ? '<span class="px-1.5 py-0.5 rounded mono-md font-medium ' + (t.path.kind === "direct" ? "bg-[#EFF6FF] text-[#1D4ED8]" : "bg-line-soft text-secondary") + '">' +
+              (t.path.kind === "direct" ? "Direct" : "Through a co-investor") + "</span>" : "") +
+          "</div>" +
+        "</div>" +
+        '<h2 id="askSentence" class="text-[18px] leading-6 font-semibold tracking-tight">' + esc(t.reason) + "</h2>" +
+        (vw && t.path.also_known_by.length ? '<div id="alsoKnown" class="mt-1 text-on-surface-variant">Also known by ' + esc(t.path.also_known_by.join(", ")) + "</div>" : "") +
+      "</div>" +
+      '<div class="grid grid-cols-2 gap-3">' +
+        score("Reach", r.score, reachBars, "", "#004ac6") +
+        score("Fit", f.score, fitBars, f.rounds < 5
+          ? '<span class="text-[#B45309]" title="Few known rounds: the fit is pulled toward 35">From ' + plural(f.rounds, "known round") + "</span>"
+          : "From " + plural(f.rounds, "known round"), "#131b2e") +
+      "</div>" +
+      "<div>" +
+        '<div class="mono-caps text-secondary mb-1">Shared rounds</div>' +
+        '<div id="evidenceBox" class="border border-line-soft rounded"><table class="w-full text-left border-collapse" style="table-layout:fixed">' +
+          '<colgroup><col style="width:23%"/><col style="width:19%"/><col style="width:82px"/><col style="width:64px"/><col/><col style="width:34px"/></colgroup>' +
+          '<thead><tr class="bg-surface-container-low mono-md text-outline">' + th("Company") + th("Round") + th("Date") + th("Amount", "text-right") + th("With") + th("", "text-right") + "</tr></thead>" +
+          '<tbody class="divide-y divide-line-soft">' + rows + "</tbody></table></div>" +
+      "</div>" +
+      "<div>" +
+        '<div class="mono-caps text-secondary mb-1">' + esc(t.name) + ": own record</div>" +
+        '<div class="grid grid-cols-4 gap-2 bg-surface-container-low p-2 rounded mono-md">' +
+          rec("Rounds", f.rounds) + rec("Led", f.led) + typical + rec("Latest round", monYear(f.latest_round)) +
+        "</div>" +
+      "</div>" +
+      '<div class="grid grid-cols-2 gap-2">' +
+        '<button type="button" id="draftOpen" class="py-2 rounded bg-cobalt hover:bg-[#1D4ED8] text-white mono-lg" aria-expanded="' + !!open + '">' +
+          (open ? "Hide draft" : (t.path.kind === "direct" && vw ? "Draft message" : "Draft intro ask")) + "</button>" +
+        researchButton(t) +
+      "</div>" +
+      (open ? draftBox(t) : "") +
+      researchBox(t) +
+    "</div>";
+}
+
+// ---- research notes: one Cala knowledge search per target and sector, on click (cached on the server)
+const research = new Map();      // "key|sector" -> note | "pending" | "unavailable"
+let researchedKeys = new Set();  // targets with a cached note for the current sector
+const researchKey = t => t.key + "|" + ((res.sector && res.sector.id) || "any");
+function researchButton(t) {
+  const r = research.get(researchKey(t));
+  const base = "py-2 rounded border border-line bg-white mono-lg ";
+  if (r === "pending") return '<button type="button" disabled class="' + base + 'opacity-60 cursor-wait">Researching… about 20 s</button>';
+  if (r === "unavailable") return '<button type="button" disabled class="' + base + 'opacity-50 cursor-not-allowed" title="Cala could not answer now">Not available</button>';
+  if (r) return '<button type="button" disabled class="' + base + 'text-outline">Researched</button>';
+  return '<button type="button" id="researchOpen" class="' + base + 'hover:bg-[#F8FAFC]" title="Ask Cala what ' + esc(t.name) + ' has invested in since 2023">' +
+    (researchedKeys.has(t.key) ? "Show research" : "Research") + "</button>";
+}
+function researchBox(t) {
+  const r = research.get(researchKey(t));
+  if (!r || typeof r !== "object") return "";
+  const sector = res.sector && res.sector.label;
+  return '<div id="researchBox" class="flex flex-col gap-1.5">' +
+    '<div class="flex items-center justify-between"><span class="mono-caps text-secondary">Research' + (sector ? " · " + esc(sector) : "") + "</span>" +
+    '<span class="mono-md text-outline" title="' + esc(r.question) + '">Cala knowledge search · ' + esc(r.asked || "") + "</span></div>" +
+    (r.claims.length
+      ? '<ul class="flex flex-col gap-1.5">' + r.claims.map(c =>
+          '<li class="flex items-start justify-between gap-3 bg-surface-container-low rounded px-2 py-1.5"><span>' + esc(c.text) + "</span>" +
+          '<a class="inline-flex shrink-0 items-center gap-1 mono-md text-primary hover:text-cobalt" href="' + esc(c.url) + '" target="_blank" rel="noopener noreferrer" title="' + esc(c.url) + '">' +
+          esc(trunc(c.site || "source", 18)) + linkIcon + "</a></li>").join("") + "</ul>"
+      : '<div class="text-on-surface-variant">No evidence found in Cala.</div>') +
+  "</div>";
+}
+async function runResearch(t) {
+  const k = researchKey(t);
+  research.set(k, "pending"); renderSide();
+  try {
+    const out = await api("/api/research", { target: t.key, sector: (res.sector && res.sector.id) || null });
+    research.set(k, out.status === "ok" ? out : "unavailable");
+    if (out.status === "ok") { researchedKeys.add(t.key); renderTable(); }
+  } catch (e) { research.set(k, "unavailable"); }
+  if (res && res.targets.some(x => researchKey(x) === k)) renderSide();
+}
+async function loadResearched() {
+  const sid = (res && res.sector && res.sector.id) || "";
+  try {
+    researchedKeys = new Set(await api("/api/researched?sector=" + encodeURIComponent(sid)));
+    if (res) { renderTable(); if (state.mode === "target" && !document.activeElement.closest("#side")) renderSide(); }
+  } catch (e) {}
+}
+
+// ---- intro drafts: a template, editable in place, with a copy button
+function listText(items, max) {
+  const shown = items.slice(0, max || 3), rest = items.length - shown.length;
+  if (rest > 0) return shown.join(", ") + " and " + plural(rest, "other company", "other companies");
+  return shown.length > 1 ? shown.slice(0, -1).join(", ") + " and " + shown[shown.length - 1] : (shown[0] || "");
+}
+function draftTemplate(t) {
+  const company = companyName(), r = state.round;
+  const ask = (r.size_eur ? "a €" + short(r.size_eur) + " " : "a ") + ROUND_LABEL[r.type] + (r.type === "bridge" ? " round" : "");
+  const lead = r.lead_needed ? ", and is looking for a lead investor" : "";
+  const direct = !!res.viewer && t.path.kind === "direct";
+  const from = direct ? res.viewer : t.path.introducer || t.reach.best_introducer;
+  const ev = t.evidence.find(e => e.with.includes(from)) || t.evidence[0];
+  const latest = ev && ev.date ? ", most recently " + (ev.company ? ev.company + " (" : "(") + roundName(ev.round) + ", " + monYear(ev.date) + ")" : "";
+  const together = listText(t.path.shared_companies);
+  if (direct) {
+    return "Subject: " + company + " is raising " + ask + "\n\n" +
+      "Hi " + t.name + " team,\n\n" +
+      "We have invested alongside you in " + together + latest + ".\n\n" +
+      company + ", one of our portfolio companies, is raising " + ask + lead + ". " +
+      "Given the rounds we have done together, we thought of you first.\n\n" +
+      "Would you like to take a look? I can send the deck and set up a call with the founders.\n\n" +
+      "Best,\n[Your name]";
+  }
+  return "Subject: Introduction to " + t.name + "?\n\n" +
+    "Hi " + from + " team,\n\n" +
+    company + " is raising " + ask + lead + ". " +
+    "You and " + t.name + " have invested together in " + together + latest + ".\n\n" +
+    "Would you be willing to introduce us to " + t.name + "? I can send a short note you can forward.\n\n" +
+    "Thanks,\n[Your name]";
+}
+function draftBox(t) {
+  return '<div id="draftBox" class="flex flex-col gap-2">' +
+    '<div class="flex items-center justify-between"><span class="mono-caps text-secondary">' +
+      (!!res.viewer && t.path.kind === "direct" ? "Message to " + esc(t.name) : "Intro ask to " + esc(t.path.introducer || t.reach.best_introducer)) + "</span>" +
+      '<span class="flex items-center gap-2"><span id="draftCopied" class="mono-md text-primary"></span>' +
+      '<button type="button" id="draftReset" class="btn mono-md" title="Discard your edits">Reset</button>' +
+      '<button type="button" id="draftCopy" class="btn primary mono-md">Copy</button></span></div>' +
+    '<textarea id="draftText" rows="13" class="field text-[13px] leading-5 w-full" spellcheck="true" aria-label="Intro draft, editable">' + esc(state.draft.text) + "</textarea>" +
+  "</div>";
+}
+
+// ---- export: one row per target, with a viewer the direct rows first
+function csvCell(v) {
+  const s = v == null ? "" : String(v);
+  return /[",\n\r]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+}
+function exportCsv() {
+  if (!res || !res.targets.length) return;
+  const vw = !!res.viewer;
+  const rows = res.targets.slice();
+  if (vw) rows.sort((a, b) => (a.path.kind === "direct" ? 0 : 1) - (b.path.kind === "direct" ? 0 : 1) || a.rank - b.rank);
+  const head = ["rank", "target", "type", "path", "introducer", "shared companies", "latest shared round", "reach", "fit", "score", "first source"];
+  const lines = [head].concat(rows.map(t => {
+    const direct = vw && t.path.kind === "direct";
+    const companies = [...new Set(t.reach.via.flatMap(v => v.shared_companies))];
+    const ev = t.evidence[0];
+    const latest = ev ? [ev.company, roundName(ev.round), ymd(ev.date)].filter(Boolean).join(" · ") : "";
+    const src = (t.evidence.find(e => e.sources && e.sources.length) || { sources: [""] }).sources[0];
+    return [t.rank, t.name, typeLabel(t.type), direct ? "direct" : "via", direct ? res.viewer : (t.path.introducer || t.reach.best_introducer),
+            companies.join("; "), latest, t.reach.score, t.fit.score, t.score, src];
+  }));
+  const csv = "﻿" + lines.map(l => l.map(csvCell).join(",")).join("\r\n") + "\r\n";
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+  a.download = ("Second Degree " + companyName() + " " + ROUND_LABEL[state.round.type] + " intro asks").replace(/[^\p{L}\p{N}]+/gu, "_").replace(/^_|_$/g, "") + ".csv";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+
+function insiderPanel(c) {
+  if (!c) return "";
+  const byName = new Map(res.targets.map(t => [t.name, t]));
+  const asks = c.asks.map(n => byName.get(n)).filter(Boolean);
+  const you = c.is_viewer;
+  const rec = (label, value) => '<div class="flex flex-col"><span class="text-outline">' + label + '</span><span class="font-semibold text-on-surface">' + value + "</span></div>";
+  const rows = asks.map(t => {
+    const v = t.reach.via.find(x => x.insider_key === c.key) || t.reach.via[0];
+    return '<button type="button" class="w-full text-left px-3 py-2 hover:bg-[#F8FAFC] flex items-center justify-between gap-3" data-target="' + esc(t.key) + '">' +
+      '<span class="min-w-0"><span class="block font-semibold truncate">' + esc(t.name) + ' <span class="mono-md text-outline font-normal">#' + t.rank + " · " + esc(typeLabel(t.type).toLowerCase()) + "</span></span>" +
+      '<span class="block text-on-surface-variant truncate">Together in ' + esc(v.shared_companies.join(", ")) + ' <span class="mono-md text-outline">· latest ' + esc((v.latest_shared || "").slice(0, 7) || "–") + "</span></span></span>" +
+      '<span class="mono-md whitespace-nowrap text-right"><span class="text-primary font-semibold">reach ' + t.reach.score + '</span><br/><span class="text-on-surface-variant">fit ' + t.fit.score + "</span></span>" +
+    "</button>";
+  }).join("");
+  const head = you
+    ? (asks.length ? "You can contact " + plural(asks.length, "investor") + " in this list directly." : "No target in this list is one you have invested with.")
+    : (asks.length ? c.name + " could make " + plural(asks.length, "introduction") + "." : c.name + " is not the best introducer for any target in this list.");
+  return '<div class="card p-6 flex flex-col gap-4">' +
+    "<div>" +
+      '<div class="flex items-center justify-between gap-2 mb-1.5"><span class="px-1.5 py-0.5 rounded bg-surface-container text-primary mono-caps">' + (you ? "You · " + esc(c.name) : "Existing investor") + "</span>" +
+      '<span class="flex items-center gap-2">' +
+        (you ? "" : '<button type="button" class="btn primary mono-md" data-view-as="' + esc(c.key) + '">View as ' + esc(c.name) + "</button>") +
+        '<button type="button" class="btn mono-md" data-insider="' + esc(c.key) + '">Back to the top ask</button></span></div>' +
+      '<h2 class="text-[18px] leading-6 font-semibold tracking-tight">' + esc(head) + "</h2>" +
+    "</div>" +
+    '<div class="grid grid-cols-4 gap-2 bg-surface-container-low p-2 rounded mono-md">' +
+      rec("Type", esc(typeLabel(c.type))) + rec("Rounds", c.rounds) + rec("Led", c.led) + rec("Latest round", monYear(c.latest_round)) +
+    "</div>" +
+    (asks.length ? '<div><div class="mono-caps text-secondary mb-1">' + (you ? "Contact directly" : "Introductions to ask for") + "</div>" +
+      '<div class="border border-line-soft rounded divide-y divide-line-soft">' + rows + "</div></div>" : "") +
+  "</div>";
+}
+
+function renderTable() {
+  const el = $("ranked");
+  if (!res) { el.innerHTML = ""; return; }
+  const vw = !!res.viewer;
+  if (!res.targets.length) { el.innerHTML = '<div class="py-6 text-center text-on-surface-variant">No targets for these settings.</div>'; return; }
+  const mini = (v, color) => '<span class="inline-flex items-center gap-2"><span class="mono-lg font-semibold w-6 text-right" style="color:' + color + '">' + v +
+    '</span><span class="w-14 h-1 bg-surface-container rounded-full overflow-hidden"><span class="block h-1 rounded-full" style="width:' + v + "%;background:" + color + '"></span></span></span>';
+  const th = (t, cls) => '<th class="py-2 px-3 font-semibold ' + (cls || "") + '">' + t + "</th>";
+  const rows = res.targets.map(t => {
+    const companies = [...new Set(t.reach.via.flatMap(v => v.shared_companies))];
+    const on = state.mode === "target" && t.key === state.selTarget;
+    const more = t.reach.insiders_connected > 1 ? ' <span class="mono-md text-outline">+' + (t.reach.insiders_connected - 1) + "</span>" : "";
+    const pathCell = vw
+      ? (t.path.kind === "direct"
+          ? '<span class="px-1.5 py-0.5 rounded bg-[#EFF6FF] text-[#1D4ED8] mono-md font-medium">Direct</span>' + more
+          : '<span class="text-on-surface-variant">via</span> <span class="text-primary">' + esc(t.path.introducer) + "</span>" + more)
+      : '<span class="text-primary">' + esc(t.reach.best_introducer) + "</span>" + more;
+    return '<tr class="row ' + (on ? "sel" : "") + '" data-target="' + esc(t.key) + '" data-from="table">' +
+      '<td class="py-2 px-3 mono-lg ' + (on ? "text-primary font-semibold" : "text-secondary") + '">#' + t.rank + "</td>" +
+      '<td class="py-2 px-3 text-[14px] font-semibold">' + esc(t.name) +
+        (researchedKeys.has(t.key) ? ' <span class="mono-caps text-outline font-normal align-middle" title="Cala research notes available in the dossier">researched</span>' : "") + "</td>" +
+      '<td class="py-2 px-3 mono-md text-secondary whitespace-nowrap">' + esc(typeLabel(t.type)) + "</td>" +
+      '<td class="py-2 px-3" data-col="path">' + pathCell + "</td>" +
+      '<td class="py-2 px-3"><span class="mono-md text-on-surface">' + companies.length + '</span> <span class="text-on-surface-variant">' + esc(trunc(companies.join(", "), 60)) + "</span></td>" +
+      '<td class="py-2 px-3 whitespace-nowrap">' + mini(t.reach.score, "#004ac6") + "</td>" +
+      '<td class="py-2 px-3 whitespace-nowrap">' + mini(t.fit.score, SLATE) + "</td>" +
+      '<td class="py-2 px-3 mono-lg font-semibold text-right">' + t.score + "</td>" +
+    "</tr>";
+  }).join("");
+  el.innerHTML = '<table class="w-full text-left border-collapse"><thead><tr class="bg-surface-container-low mono-caps text-outline">' +
+    th("Rank") + th("Investor") + th("Type") + th(vw ? "Path" : "Best introducer") + th("Shared companies") + th("Reach") + th("Fit") + th("Score", "text-right") +
+    '</tr></thead><tbody class="divide-y divide-line-soft">' + rows + "</tbody></table>";
+}
+
+// ---------------------------------------------------------------- controls
+function syncControls() {
+  $("companyInput").value = state.company;
+  document.querySelectorAll("#roundType .seg").forEach(b => b.classList.toggle("on", b.dataset.round === state.round.type));
+  $("sizeInput").value = state.round.size_eur ? state.round.size_eur / 1e6 : "";
+  $("leadInput").checked = state.round.lead_needed;
+  $("typeSwitches").innerHTML = SWITCHES.map(([k, label]) =>
+    '<button type="button" class="chip ' + (state.types.has(k) ? "on" : "") + '" data-type="' + k + '" aria-pressed="' + state.types.has(k) + '">' + label + "</button>").join("");
+  $("balanceInput").value = Math.round(state.balance * 100);
+  $("balanceVal").textContent = balanceText();
+  filtersBadge();
+}
+// The Filters button shows how many settings differ from the default (funds only, 50/50).
+function filtersBadge() {
+  const n = (state.types.size !== 1 || !state.types.has("fund") ? 1 : 0) + (state.balance !== 0.5 ? 1 : 0);
+  $("filtersBadge").textContent = n ? "· " + n : "";
+}
+function showFilters(on) {
+  const pop = $("filtersPop");
+  pop.classList.toggle("hidden", !on); pop.classList.toggle("flex", on);
+  $("filtersOpen").setAttribute("aria-expanded", on ? "true" : "false");
+}
+$("filtersOpen").addEventListener("click", () => showFilters($("filtersPop").classList.contains("hidden")));
+document.addEventListener("mousedown", e => { if (!e.target.closest("#filtersPop, #filtersOpen")) showFilters(false); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") showFilters(false); });
+
+// The landing shows only the company search and the paste button, moved there from the header.
+function setLanding(on) {
+  if (document.body.classList.contains("landing") === on) return;
+  document.body.classList.toggle("landing", on);
+  const box = on ? $("landingSearch") : $("companySlot");
+  box.appendChild($("companyBox")); box.appendChild($("pasteOpen"));
+}
+
+function setCompany(name) {
+  setLanding(false);
+  state.company = name; state.capNames = null; state.unmatched = [];
+  state.viewer = null; state.pathFilter = "all"; state.sector = null; state.draft = null;
+  state.selTarget = null; state.selInsider = null; state.mode = "target";
+  $("companyInput").value = name;
+  loadCompany();
+}
+
+// ---- company picker with type-ahead
+const picker = { open: false, items: [], active: -1 };
+function pickerItems(text) {
+  const s = text.trim().toLowerCase();
+  if (!s) return companies.slice(0, 80);
+  const starts = [], has = [];
+  for (const c of companies) {
+    const n = c.company.toLowerCase();
+    if (n.startsWith(s)) starts.push(c); else if (n.includes(s)) has.push(c);
+  }
+  return starts.concat(has).slice(0, 80);
+}
+function drawPicker() {
+  const menu = $("companyMenu"), input = $("companyInput");
+  menu.classList.toggle("hidden", !picker.open);
+  input.setAttribute("aria-expanded", picker.open ? "true" : "false");
+  if (!picker.open) return;
+  menu.innerHTML = picker.items.length
+    ? picker.items.map((c, i) =>
+        '<div role="option" id="co-' + i + '" aria-selected="' + (i === picker.active) + '" data-pick="' + i + '" class="px-3 py-1.5 flex items-center justify-between gap-3 cursor-pointer ' +
+        (i === picker.active ? "bg-[#EFF6FF]" : "hover:bg-[#F8FAFC]") + '"><span class="truncate font-medium">' + esc(c.company) +
+        '</span><span class="mono-md text-outline whitespace-nowrap">' + plural(c.investors, "investor") + " · " + plural(c.rounds, "round") + "</span></div>").join("")
+    : '<div class="px-3 py-2 text-on-surface-variant">No company in the graph matches. You can paste its cap table instead.</div>';
+  const act = picker.active >= 0 && $("co-" + picker.active);
+  if (act) act.scrollIntoView({ block: "nearest" });
+}
+function openPicker(text) { picker.open = true; picker.items = pickerItems(text); picker.active = text.trim() && picker.items.length ? 0 : -1; drawPicker(); }
+function closePicker() { picker.open = false; drawPicker(); }
+function pick(i) {
+  const c = picker.items[i];
+  if (!c) return;
+  closePicker();
+  $("companyInput").blur();
+  if (c.company !== state.company || state.capNames) setCompany(c.company); else $("companyInput").value = state.company;
+}
+$("companyInput").addEventListener("focus", e => { e.target.select(); openPicker(""); });
+$("companyInput").addEventListener("input", e => openPicker(e.target.value));
+$("companyInput").addEventListener("keydown", e => {
+  if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+    e.preventDefault();
+    if (!picker.open) { openPicker(e.target.value); return; }
+    const n = picker.items.length;
+    if (n) picker.active = (picker.active + (e.key === "ArrowDown" ? 1 : -1) + n) % n;
+    drawPicker();
+  } else if (e.key === "Enter") {
+    e.preventDefault();
+    if (picker.open && picker.items.length) pick(Math.max(0, picker.active));
+  } else if (e.key === "Escape") { closePicker(); e.target.value = state.company; e.target.blur(); }
+});
+$("companyInput").addEventListener("blur", e => { closePicker(); e.target.value = state.company; });
+$("companyMenu").addEventListener("mousedown", e => {      // mousedown, so it lands before the input's blur
+  e.preventDefault();
+  const o = e.target.closest("[data-pick]");
+  if (o) pick(+o.dataset.pick);
+});
+
+// ---- viewpoint, round, types, balance
+$("viewerBar").addEventListener("click", e => {
+  const b = e.target.closest("[data-path]");
+  if (!b) return;
+  state.pathFilter = b.dataset.path;
+  if (state.mode === "insider") { state.mode = "target"; state.selInsider = null; }
+  refresh(true);
+});
+$("roundType").addEventListener("click", e => {
+  const b = e.target.closest("[data-round]");
+  if (!b) return;
+  state.round.type = b.dataset.round; syncControls(); refresh(true);
+});
+$("sizeInput").addEventListener("input", e => {
+  const v = parseFloat(e.target.value);
+  state.round.size_eur = v > 0 ? Math.round(v * 1e6) : null;
+  refreshSoon(200);
+});
+$("leadInput").addEventListener("change", e => { state.round.lead_needed = e.target.checked; refresh(true); });
+$("sectorSelect").addEventListener("change", e => { state.sector = e.target.value; refresh(true); });
+$("exportCsv").addEventListener("click", exportCsv);
+
+// ---- the intro draft in the dossier
+$("side").addEventListener("click", e => {
+  const t = res && res.targets.find(x => x.key === state.selTarget);
+  if (!t) return;
+  if (e.target.closest("#researchOpen")) { runResearch(t); return; }
+  if (e.target.closest("#draftOpen")) {
+    state.draft = state.draft && state.draft.key === t.key ? null : { key: t.key, text: draftTemplate(t) };
+    renderSide();
+    if (state.draft) $("draftText").focus();
+  } else if (e.target.closest("#draftReset")) {
+    state.draft = { key: t.key, text: draftTemplate(t) };
+    $("draftText").value = state.draft.text;
+  } else if (e.target.closest("#draftCopy")) {
+    const text = $("draftText").value, done = () => { $("draftCopied").textContent = "Copied"; setTimeout(() => { const c = $("draftCopied"); if (c) c.textContent = ""; }, 1600); };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, () => { $("draftText").select(); document.execCommand("copy"); done(); });
+    else { $("draftText").select(); document.execCommand("copy"); done(); }
+  }
+});
+$("side").addEventListener("input", e => { if (e.target.id === "draftText" && state.draft) state.draft.text = e.target.value; });
+$("typeSwitches").addEventListener("click", e => {
+  const b = e.target.closest("[data-type]");
+  if (!b) return;
+  const k = b.dataset.type;
+  if (state.types.has(k)) state.types.delete(k); else state.types.add(k);
+  if (!state.types.size) state.types.add("fund");     // an empty set would mean "everything" to the engine
+  syncControls(); refresh(true);
+});
+$("balanceInput").addEventListener("input", e => {
+  state.balance = Number(e.target.value) / 100;
+  $("balanceVal").textContent = balanceText();
+  filtersBadge();
+  refreshSoon(30);
+});
+
+// ---- paste a cap table
+let pasted = [], pasteTimer = null, modelTimer = null, pasteSeq = 0, pasteReader = "rules";
+let hasModel = false;      // GET /api/config: the server can read pasted text with Claude
+function showPaste(on) {
+  const m = $("pasteModal");
+  m.classList.toggle("hidden", !on); m.classList.toggle("flex", on);
+  if (on) { $("pasteCompany").value = cap ? "" : state.company; pasteCompanyGuessed = false; $("pasteFileName").textContent = ""; $("pasteText").focus(); }
+}
+// While typing: the quick rules. After a pause, with a key on the server: Claude reads the names.
+// A company in the graph that one of the first lines starts with ("Davis AI - shareholders ..."), or "".
+function companyInText(text) {
+  const lines = text.split(/\r?\n/).map(l => l.trim().toLowerCase()).filter(Boolean).slice(0, 3);
+  let best = "";
+  for (const c of companies) {
+    const n = c.company.toLowerCase();
+    if (n.length < 3 || n.length <= best.length) continue;
+    if (lines.some(l => l.startsWith(n) && !/[a-z0-9]/.test(l.charAt(n.length)))) best = c.company;
+  }
+  return best;
+}
+let pasteCompanyGuessed = false;   // the company field holds our guess, not what the user typed
+async function matchPaste(useModel) {
+  const text = $("pasteText").value, id = ++pasteSeq;
+  if (!$("pasteCompany").value.trim() || pasteCompanyGuessed) {
+    const guess = companyInText(text);
+    $("pasteCompany").value = guess; pasteCompanyGuessed = !!guess;
+  }
+  if (!text.trim()) { pasted = []; pasteReader = "rules"; drawPaste(); return; }
+  if (useModel) { $("pasteCount").textContent = "Reading the names with Claude…"; $("pasteUse").disabled = true; }
+  try {
+    const out = await api("/api/match", { text, use_model: !!useModel });
+    if (id !== pasteSeq) return;
+    pasted = out.investors; pasteReader = out.reader || "rules";
+  } catch (e) { if (id !== pasteSeq) return; pasted = []; $("pasteCount").textContent = "Could not match the names: " + e.message; return; }
+  drawPaste();
+}
+function drawPaste() {
+  const ok = pasted.filter(i => i.status === "matched"), no = pasted.filter(i => i.status !== "matched");
+  $("pasteResult").innerHTML = pasted.map(i => i.status === "matched"
+    ? '<span class="chip on" title="Typed as: ' + esc(i.input) + '">' + esc(i.name) + ' <span class="opacity-70">' + esc(typeLabel(i.type).toLowerCase()) + "</span></span>"
+    : '<span class="chip amber" title="No investor with this name in the graph">' + esc(i.input) + "</span>").join("");
+  $("pasteCount").textContent = pasted.length ? ok.length + " matched" + (no.length ? " · " + no.length + " not in the graph (amber)" : "") +
+    (pasteReader === "model" ? " · names read by Claude" : "") : "";
+  $("pasteUse").disabled = !ok.length;
+}
+$("pasteCompany").addEventListener("input", () => { pasteCompanyGuessed = false; });
+$("pasteOpen").addEventListener("click", () => showPaste(true));
+$("pasteClose").addEventListener("click", () => showPaste(false));
+$("pasteModal").addEventListener("mousedown", e => { if (e.target === $("pasteModal")) showPaste(false); });
+$("pasteText").addEventListener("input", () => {
+  clearTimeout(pasteTimer); clearTimeout(modelTimer);
+  pasteTimer = setTimeout(() => matchPaste(false), 250);
+  if (hasModel) modelTimer = setTimeout(() => matchPaste(true), 1200);
+});
+// An uploaded file: the server reads its text, which then takes the same path as pasted text.
+async function uploadPaste(file) {
+  if (!file) return;
+  $("pasteFileName").textContent = file.name;
+  if (!/\.(csv|xlsx|pdf)$/i.test(file.name)) { $("pasteCount").textContent = "Upload a CSV, XLSX or PDF file."; return; }
+  if (file.size > 2 * 1024 * 1024) { $("pasteCount").textContent = "The file is larger than 2 MB."; return; }
+  $("pasteCount").textContent = "Reading " + file.name + "…"; $("pasteUse").disabled = true;
+  try {
+    const data = await new Promise((ok, bad) => {
+      const r = new FileReader();
+      r.onload = () => ok(String(r.result).split(",", 2)[1] || "");
+      r.onerror = () => bad(new Error("could not read the file"));
+      r.readAsDataURL(file);
+    });
+    const out = await api("/api/extract", { filename: file.name, data });
+    $("pasteText").value = out.text;
+    clearTimeout(pasteTimer); clearTimeout(modelTimer);
+    await matchPaste(hasModel);
+  } catch (e) { $("pasteCount").textContent = "Could not read " + file.name + ": " + e.message; }
+}
+$("pasteFile").addEventListener("change", e => { uploadPaste(e.target.files[0]); e.target.value = ""; });
+$("pasteText").addEventListener("dragover", e => e.preventDefault());
+$("pasteText").addEventListener("drop", e => {
+  if (!e.dataTransfer.files.length) return;
+  e.preventDefault(); uploadPaste(e.dataTransfer.files[0]);
+});
+$("pasteUse").addEventListener("click", () => {
+  const keys = [...new Set(pasted.filter(i => i.status === "matched").map(i => i.key))];
+  if (!keys.length) return;
+  state.company = $("pasteCompany").value.trim();
+  state.capNames = keys;
+  state.unmatched = pasted.filter(i => i.status !== "matched").map(i => i.input);
+  state.viewer = null; state.pathFilter = "all";
+  state.selTarget = null; state.selInsider = null; state.mode = "target";
+  $("companyInput").value = state.company;
+  showPaste(false);
+  setLanding(false);
+  loadCompany();
+});
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("pasteModal").classList.contains("hidden")) showPaste(false); });
+
+// ---- clicks on anything the render functions drew
+document.addEventListener("click", e => {
+  if (!res) return;
+  const va = e.target.closest("[data-view-as]");
+  if (va) { setViewer(va.dataset.viewAs); return; }
+  if (e.target.closest("[data-clear-viewer]")) { setViewer(null); return; }
+  if (e.target.closest("[data-more-insiders]")) { state.moreInsiders = !state.moreInsiders; renderMapFoot(); return; }
+  const rm = e.target.closest("[data-remove]");
+  if (rm) {
+    state.capNames = res.cap_table.filter(c => c.key !== rm.dataset.remove).map(c => c.key);
+    refresh(true); return;
+  }
+  const add = e.target.closest("[data-add]");
+  if (add) { state.capNames = res.cap_table.map(c => c.key).concat([add.dataset.add]); refresh(true); return; }
+  if (e.target.closest("[data-reset-cap]")) { state.capNames = null; state.unmatched = []; refresh(true); return; }
+  const t = e.target.closest("[data-target]");
+  if (t) {
+    state.mode = "target"; state.selTarget = t.dataset.target; state.selInsider = null;
+    render();
+    if (t.dataset.from === "table") $("workspace").scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
+  const i = e.target.closest("[data-insider]");
+  if (i) {
+    if (state.mode === "insider" && state.selInsider === i.dataset.insider) { state.mode = "target"; state.selInsider = null; }
+    else { state.mode = "insider"; state.selInsider = i.dataset.insider; }
+    render();
+  }
+});
+
+// ---------------------------------------------------------------- start
+(async function start() {
+  setLanding(!state.company && !state.capNames);
+  syncControls();
+  renderSummary(); renderViewer();
+  try { companies = await api("/api/companies"); }
+  catch (e) { notice("Could not load the company list: " + e.message, true); }
+  api("/api/config").then(c => {
+    hasModel = !!c.model;
+    if (hasModel) $("pasteHint").textContent = "Paste it in any format: a list, a spreadsheet table, an email or a press release. Claude reads out the investor names; each is then matched to an investor in the graph.";
+  }).catch(() => {});
+  loadCompany();
+})();
+</script>
+</body>
+</html>

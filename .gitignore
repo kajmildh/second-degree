@@ -1,0 +1,12 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+
+# The crawl writes one raw Cala response per call here; publish only the
+# curated graph and the lookup tables built from it.
+crawl_cache/*
+!crawl_cache/rounds.json
+!crawl_cache/investor_types.json
+!crawl_cache/company_sectors.json
+!crawl_cache/research.json

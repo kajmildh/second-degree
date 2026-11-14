@@ -1,0 +1,1162 @@
+{
+  "11x": {
+    "sector": "software",
+    "what": "Funding headline: 11x 50m b led a16z ai digital"
+  },
+  "aavuus": {
+    "sector": "space",
+    "what": "Funding headline: space safety aavuus lands pre tackle space"
+  },
+  "adamant health": {
+    "sector": "health",
+    "what": "Funding headline: health Adamant Health funding round"
+  },
+  "agileday": {
+    "sector": "software",
+    "what": "Funding headline: espoo based agileday e6 4 million build"
+  },
+  "ai coustics": {
+    "sector": "software",
+    "what": "Funding headline: software ai|coustics funding round"
+  },
+  "aiatella": {
+    "sector": "software",
+    "what": "Funding headline: aiatella 2m ai powered cardiovascular imaging screening"
+  },
+  "aiba ai": {
+    "sector": "software",
+    "what": "Funding headline: software Aiba AI funding round"
+  },
+  "aio": {
+    "sector": "industrial",
+    "what": "Funding headline: estonian aio lands e1m turn industry waste"
+  },
+  "aiven": {
+    "sector": "software",
+    "what": "Funding headline: aiven dollar40m b accelerate open source cloud"
+  },
+  "alixlabs": {
+    "sector": "computing",
+    "what": "Funding headline: semiconductor alixlabs usd 1 million capital c3422504"
+  },
+  "ambio": {
+    "sector": "industrial",
+    "what": "Funding headline: helsinkis ambio e5 1 million scale ai"
+  },
+  "amplifold": {
+    "sector": "health",
+    "what": "Funding headline: amplifold oversubscribed 5 million bring ultrasensitive lateral"
+  },
+  "anrok": {
+    "sector": "fintech",
+    "what": "Funding headline: Anrok 20M Help SaaS Companies Manage Sales"
+  },
+  "anthropic pbc": {
+    "sector": "software",
+    "what": "Funding headline: anthropic 124 million build more reliable general"
+  },
+  "anyday": {
+    "sector": "fintech",
+    "what": "Funding headline: anyday 4 million offering active stance ethical"
+  },
+  "anyfin": {
+    "sector": "fintech",
+    "what": "Funding headline: fintech Anyfin funding round"
+  },
+  "appfarm": {
+    "sector": "food",
+    "what": "Funding headline: food Appfarm funding round"
+  },
+  "aquanab": {
+    "sector": "health",
+    "what": "Funding headline: biotech aquanab secures tackle sea lice nanoantibodies"
+  },
+  "arago": {
+    "sector": "computing",
+    "what": "Funding headline: arago 26m slash ai energy consumption breakthrough"
+  },
+  "askui": {
+    "sector": "industrial",
+    "what": "Funding headline: ai powered automation software askui e4 3"
+  },
+  "aura aero": {
+    "sector": "mobility",
+    "what": "Funding headline: aura aero secures 50m euros advance industrial"
+  },
+  "aurora propulsion technologies": {
+    "sector": "space",
+    "what": "Funding headline: space Aurora Propulsion Technologies funding round"
+  },
+  "avendar": {
+    "sector": "software",
+    "what": "Funding headline: avendar 2 2m deploy ai against fraud"
+  },
+  "avrea": {
+    "sector": "software",
+    "what": "Funding headline: ai native ci cd platform why were"
+  },
+  "bacta": {
+    "sector": "industrial",
+    "what": "Funding headline: paris bacta e7 million use microorganisms programmable"
+  },
+  "because": {
+    "sector": "consumer",
+    "what": "Funding headline: danish start up because nearly 2m revolutionize"
+  },
+  "better medicine": {
+    "sector": "health",
+    "what": "Funding headline: estonian medtech better medicine e1 million expand"
+  },
+  "biorce": {
+    "sector": "health",
+    "what": "Funding headline: biorce 438m speed ai clinical trials"
+  },
+  "bought": {
+    "sector": "consumer",
+    "what": "Funding headline: vinted rival bought 1 5m redefine recommerce"
+  },
+  "brym": {
+    "sector": "health",
+    "what": "Funding headline: brym secures eur650k develop wearable neurofeedback platform"
+  },
+  "builderhead": {
+    "sector": "fintech",
+    "what": "Funding headline: fintech Builderhead funding round"
+  },
+  "camion infrastructure": {
+    "sector": "energy",
+    "what": "Funding headline: camion lands 1 9m electrify properties boost"
+  },
+  "carbo culture": {
+    "sector": "fintech",
+    "what": "Funding headline: fintech Carbo Culture Oy funding round"
+  },
+  "cardboard": {
+    "sector": "software",
+    "what": "Funding headline: cardboard 1 9m saas subscription management"
+  },
+  "carter": {
+    "sector": "consumer",
+    "what": "Funding headline: helsinki based e commerce starcart secures e3"
+  },
+  "circulate": {
+    "sector": "fintech",
+    "what": "Funding headline: fintech Circulate funding round"
+  },
+  "cleo ai": {
+    "sector": "fintech",
+    "what": "Funding headline: virtual money assistant cleo really gets 10m"
+  },
+  "clock cloud": {
+    "sector": "software",
+    "what": "Funding headline: clock cloud secures eu1 5 million pre"
+  },
+  "comparables ai": {
+    "sector": "software",
+    "what": "Funding headline: software Comparables.ai funding round"
+  },
+  "constellr": {
+    "sector": "space",
+    "what": "Funding headline: spacetech constellr that can monitor land surface"
+  },
+  "corsmed": {
+    "sector": "health",
+    "what": "Funding headline: corsmed lands 3 5m faster cheaper mri"
+  },
+  "credium": {
+    "sector": "fintech",
+    "what": "Funding headline: fintech credium funding round"
+  },
+  "cronvall": {
+    "sector": "industrial",
+    "what": "Funding headline: cronvall 3 9m digitise industrial procurement europe"
+  },
+  "curifylabs": {
+    "sector": "health",
+    "what": "Funding headline: finlands curifylabs e12 million expand 3d printing"
+  },
+  "cytely": {
+    "sector": "health",
+    "what": "Funding headline: cytely secures e3m revolutionize biomedical research ai"
+  },
+  "dashboa": {
+    "sector": "software",
+    "what": "Funding headline: dashboa 1 3 million lead next wave"
+  },
+  "davis ai": {
+    "sector": "software",
+    "what": "Funding headline: french ai real estate davis e4 6"
+  },
+  "deeploi": {
+    "sector": "software",
+    "what": "Funding headline: deeploi it service atomico"
+  },
+  "distance technologies": {
+    "sector": "computing",
+    "what": "Funding headline: distance technologies secures e10m"
+  },
+  "divtax": {
+    "sector": "fintech",
+    "what": "Funding headline: hamburg based divtax e1 million help investors"
+  },
+  "drev": {
+    "sector": "industrial",
+    "what": "Funding headline: europe ramps up gigafactory compliance drev e2"
+  },
+  "driveblocks": {
+    "sector": "software",
+    "what": "Funding headline: software DriveBlocks funding round"
+  },
+  "eagronom oü": {
+    "sector": "food",
+    "what": "Funding headline: eagronom eur10m a2 boosts sustainable farming practices"
+  },
+  "ebrands global": {
+    "sector": "fintech",
+    "what": "Funding headline: fintech eBrands Global Oy funding round"
+  },
+  "elea lili": {
+    "sector": "food",
+    "what": "Funding headline: vtt spinout elea lili eur 25 million"
+  },
+  "elixion medical": {
+    "sector": "health",
+    "what": "Funding headline: health Elixion Medical funding round"
+  },
+  "embedl": {
+    "sector": "software",
+    "what": "Funding headline: embedl receives 45 msek investment scale up"
+  },
+  "encosa": {
+    "sector": "energy",
+    "what": "Funding headline: 25 millionen fuer batteriespeicher bayern kapital steigt"
+  },
+  "engrate": {
+    "sector": "computing",
+    "what": "Funding headline: computing Engrate funding round"
+  },
+  "exploration company": {
+    "sector": "space",
+    "what": "Funding headline: munich based exploration secures e160 million further"
+  },
+  "fero": {
+    "sector": "fintech",
+    "what": "Funding headline: fintech FERO funding round"
+  },
+  "financekey": {
+    "sector": "fintech",
+    "what": "Funding headline: fintech FinanceKey Oy funding round"
+  },
+  "firestorm labs": {
+    "sector": "mobility",
+    "what": "Funding headline: firestorm labs secures 47m boost frontline u"
+  },
+  "fitshit health solutions private": {
+    "sector": "health",
+    "what": "Funding headline: health food brand whole truth matrix partners"
+  },
+  "flow computing": {
+    "sector": "computing",
+    "what": "Funding headline: flow 4m iterate parallel processing tech massively"
+  },
+  "flowhaven": {
+    "sector": "software",
+    "what": "Funding headline: brand licensing software leader flowhaven secures 16"
+  },
+  "fluencify": {
+    "sector": "media",
+    "what": "Funding headline: stockholm based fluencify e3 7 million scale"
+  },
+  "fly io": {
+    "sector": "computing",
+    "what": "Funding headline: fly io 70m help developers launch apps"
+  },
+  "front ai": {
+    "sector": "software",
+    "what": "Funding headline: conversational ai front ai e500k"
+  },
+  "frontier ai": {
+    "sector": "health",
+    "what": "Funding headline: former palantir healthcare head 16m nhs ai"
+  },
+  "furro": {
+    "sector": "fintech",
+    "what": "Funding headline: superhero capital invests furro insurtech redefining pet"
+  },
+  "future energy services": {
+    "sector": "energy",
+    "what": "Funding headline: berlin based cleantech trawa e10 million cut"
+  },
+  "fygy": {
+    "sector": "software",
+    "what": "Funding headline: software Fygy funding round"
+  },
+  "galileo ai": {
+    "sector": "software",
+    "what": "Funding headline: arnaudbenard thrilled announce that galileo ai available"
+  },
+  "gemma biotherapeutics": {
+    "sector": "health",
+    "what": "Funding headline: gemmabio secures 34 million drive gene therapy"
+  },
+  "geordie ai": {
+    "sector": "software",
+    "what": "Funding headline: geordie 30m help enterprises securely adopt agentic"
+  },
+  "geyser batteries": {
+    "sector": "energy",
+    "what": "Funding headline: cleantech geyser batteries e1 million further develop"
+  },
+  "gigi": {
+    "sector": "software",
+    "what": "Funding headline: gigi openai sequoia extension us move"
+  },
+  "gilion": {
+    "sector": "computing",
+    "what": "Funding headline: ark kapital secures 145 1m"
+  },
+  "gosta labs": {
+    "sector": "health",
+    "what": "Funding headline: cancer cases surge toward 35 million 2050"
+  },
+  "groove quantum": {
+    "sector": "computing",
+    "what": "Funding headline: groove quantum 16 million euros claims largest"
+  },
+  "groundhawk": {
+    "sector": "industrial",
+    "what": "Funding headline: groundhawk 2 million scale ai powered 3d"
+  },
+  "haya therapeutics": {
+    "sector": "health",
+    "what": "Funding headline: haya therapeutics usd65 million deliver"
+  },
+  "hemby": {
+    "sector": "consumer",
+    "what": "Funding headline: helsinki based helppy revolutionising home care has"
+  },
+  "hololight": {
+    "sector": "media",
+    "what": "Funding headline: easy netflix austrian hololight e10 million xr"
+  },
+  "hook": {
+    "sector": "media",
+    "what": "Funding headline: ai remix hook secures 10m led khosla"
+  },
+  "hulo ai": {
+    "sector": "computing",
+    "what": "Funding headline: hulo secures e2 3m"
+  },
+  "huuva": {
+    "sector": "food",
+    "what": "Funding headline: gourmet lovers rejoice huuva gobbles eur49 million"
+  },
+  "hyimpulse technologies": {
+    "sector": "space",
+    "what": "Funding headline: spacetech hyimpulse secures over e50 million accelerate"
+  },
+  "hyperion robotics": {
+    "sector": "industrial",
+    "what": "Funding headline: hyperion robotics clutches e3m print sustainable concrete"
+  },
+  "in parallel": {
+    "sector": "software",
+    "what": "Funding headline: parallel secures 2 8m revolutionize corporate strategy"
+  },
+  "integrify": {
+    "sector": "fintech",
+    "what": "Funding headline: fintech Integrify Oy funding round"
+  },
+  "intergrid": {
+    "sector": "energy",
+    "what": "Funding headline: intergrid secures over eur 10m electrify industrial"
+  },
+  "inven": {
+    "sector": "software",
+    "what": "Funding headline: inven 12 75m build ai backbone private"
+  },
+  "ionctura": {
+    "sector": "health",
+    "what": "Funding headline: ionctura announces eu80m b financing progress pipeline"
+  },
+  "iprally": {
+    "sector": "software",
+    "what": "Funding headline: iprally patent search engine powered explainable ai"
+  },
+  "iqm quantum computers": {
+    "sector": "computing",
+    "what": "Funding headline: quantum computing leader iqm e128m led world"
+  },
+  "job talent": {
+    "sector": "fintech",
+    "what": "Funding headline: fintech Job&Talent funding round"
+  },
+  "jobilla": {
+    "sector": "software",
+    "what": "Funding headline: software Jobilla funding round"
+  },
+  "juritas": {
+    "sector": "software",
+    "what": "Funding headline: juritas 1 4m pre"
+  },
+  "katana mrp": {
+    "sector": "industrial",
+    "what": "Funding headline: key manufacturing our investment katana"
+  },
+  "kelluu": {
+    "sector": "space",
+    "what": "Funding headline: nato innovation fund leads e15mn kelluu build"
+  },
+  "kiin bio": {
+    "sector": "health",
+    "what": "Funding headline: uk s biotech secures 2 2 m"
+  },
+  "klaro": {
+    "sector": "fintech",
+    "what": "Funding headline: fintech Klaro funding round"
+  },
+  "kuva space": {
+    "sector": "space",
+    "what": "Funding headline: satellite tech firm kuva space eur 8m"
+  },
+  "leasecloud": {
+    "sector": "fintech",
+    "what": "Funding headline: fintech LeaseCloud AB funding round"
+  },
+  "legitify": {
+    "sector": "computing",
+    "what": "Funding headline: computing Legitify funding round"
+  },
+  "lema ai": {
+    "sector": "software",
+    "what": "Funding headline: lema ai 24 million"
+  },
+  "lifesum": {
+    "sector": "health",
+    "what": "Funding headline: healthy diet lifesum bags 5 million balderton"
+  },
+  "lightbringer": {
+    "sector": "software",
+    "what": "Funding headline: lightbringer secures e4 3 million expand ai"
+  },
+  "liveeo": {
+    "sector": "space",
+    "what": "Funding headline: berlin based liveeo e25 million b leverage"
+  },
+  "lovable": {
+    "sector": "industrial",
+    "what": "Funding headline: lovable raise e343 million c expand platform"
+  },
+  "maeconomy": {
+    "sector": "industrial",
+    "what": "Funding headline: dutch maeconomy e1 5 million turn building"
+  },
+  "magiqware": {
+    "sector": "computing",
+    "what": "Funding headline: magiqware wants accelerate fault tolerant quantum computing"
+  },
+  "makiina": {
+    "sector": "industrial",
+    "what": "Funding headline: aql robotics 800000 pre led fov ventures"
+  },
+  "manex ai": {
+    "sector": "software",
+    "what": "Funding headline: manex ai closes 8 million enable autonomous"
+  },
+  "maple aviation": {
+    "sector": "health",
+    "what": "Funding headline: four million medical drones maple aviation"
+  },
+  "marker": {
+    "sector": "software",
+    "what": "Funding headline: software Marker funding round"
+  },
+  "marqvision": {
+    "sector": "computing",
+    "what": "Funding headline: computing MarqVision funding round"
+  },
+  "marvel fusion": {
+    "sector": "energy",
+    "what": "Funding headline: marvel fusion closed 35 million led earlybird"
+  },
+  "marvelx": {
+    "sector": "software",
+    "what": "Funding headline: software MarvelX funding round"
+  },
+  "megazonecloud": {
+    "sector": "software",
+    "what": "Funding headline: 147947 megazone cloud lands pre ipo neowiz"
+  },
+  "metaktik": {
+    "sector": "software",
+    "what": "Funding headline: metaktik sai miljoonan euron rahoituksen suomalainen antenni"
+  },
+  "metroc": {
+    "sector": "industrial",
+    "what": "Funding headline: helsinki based saas metroc secures e2 million"
+  },
+  "migränhjälpen": {
+    "sector": "health",
+    "what": "Funding headline: migranhjalpen add 630k almi add health media"
+  },
+  "milvus advanced": {
+    "sector": "industrial",
+    "what": "Funding headline: milvus advanced scale industrial scale substitution critical"
+  },
+  "modash oü": {
+    "sector": "media",
+    "what": "Funding headline: tallinn based modash e11 million help consumer"
+  },
+  "mojiworks": {
+    "sector": "media",
+    "what": "Funding headline: uk start up mojiworks goes all imessage"
+  },
+  "motorica": {
+    "sector": "media",
+    "what": "Funding headline: motorica 5 8m game animation ai platform"
+  },
+  "moxso": {
+    "sector": "fintech",
+    "what": "Funding headline: fintech Moxso funding round"
+  },
+  "multivisiondx": {
+    "sector": "health",
+    "what": "Funding headline: multivisiondx 1m pre ai cancer diagnostics"
+  },
+  "nadmed": {
+    "sector": "health",
+    "what": "Funding headline: biotech nadmed e3 5 million vitamin b3"
+  },
+  "nanordica medical": {
+    "sector": "health",
+    "what": "Funding headline: specialist vc 1 75m nanordica medical"
+  },
+  "neo financial": {
+    "sector": "fintech",
+    "what": "Funding headline: Neo Financial 360M Accelerate Growth Position Itself"
+  },
+  "neocarbon": {
+    "sector": "computing",
+    "what": "Funding headline: neocarbon bags 3 2m"
+  },
+  "nexos ai": {
+    "sector": "software",
+    "what": "Funding headline: ex nordvpn founders nexos ai e30m build"
+  },
+  "nimble fox": {
+    "sector": "media",
+    "what": "Funding headline: media Nimble Fox funding round"
+  },
+  "ninadata io": {
+    "sector": "fintech",
+    "what": "Funding headline: fintech NinaData.io funding round"
+  },
+  "nitricity": {
+    "sector": "food",
+    "what": "Funding headline: nitricity bags 50m meet surging demand organic"
+  },
+  "nora": {
+    "sector": "software",
+    "what": "Funding headline: ai camp interfaces meet companies"
+  },
+  "northwood space": {
+    "sector": "space",
+    "what": "Funding headline: space Northwood Space funding round"
+  },
+  "norwegian mycelium": {
+    "sector": "food",
+    "what": "Funding headline: food Norwegian Mycelium funding round"
+  },
+  "nvelop": {
+    "sector": "software",
+    "what": "Funding headline: nvelop secures e1 2 million innovate enterprise"
+  },
+  "omnea": {
+    "sector": "fintech",
+    "what": "Funding headline: fintech OMNEA LIMITED funding round"
+  },
+  "onego bio": {
+    "sector": "food",
+    "what": "Food biotech develops precision fermentation egg proteins"
+  },
+  "open payments europe": {
+    "sector": "fintech",
+    "what": "Funding headline: open payments 1 3 meur luminar ventures"
+  },
+  "optivian": {
+    "sector": "software",
+    "what": "Funding headline: optivian secures 2 3m build ai agents"
+  },
+  "ororatech": {
+    "sector": "space",
+    "what": "Funding headline: ororatech 25 million euros satellite wildfire detection"
+  },
+  "oscar": {
+    "sector": "consumer",
+    "what": "Funding headline: oscar transforming home services eur6m"
+  },
+  "otee": {
+    "sector": "industrial",
+    "what": "Funding headline: oslo based otee secures eur125m industrial automation"
+  },
+  "ounas health": {
+    "sector": "health",
+    "what": "Funding headline: ounas health e1m pre build product category"
+  },
+  "pal": {
+    "sector": "computing",
+    "what": "Funding headline: antler netherlands dutch startups pre"
+  },
+  "pave space": {
+    "sector": "space",
+    "what": "Funding headline: space PAVE Space funding round"
+  },
+  "permutation labs": {
+    "sector": "software",
+    "what": "Funding headline: dust use large language models internal data"
+  },
+  "photoncycle": {
+    "sector": "energy",
+    "what": "Funding headline: oslos photoncycle e15 million enable households store"
+  },
+  "pistachio": {
+    "sector": "software",
+    "what": "Funding headline: pistachio 7m cybersecurity awareness platform"
+  },
+  "pocket entertainment ventures private": {
+    "sector": "media",
+    "what": "Funding headline: media POCKET ENTERTAINMENT VENTURES PRIVATE LIMITED funding round"
+  },
+  "porters": {
+    "sector": "fintech",
+    "what": "Funding headline: porters 2 7 million build ai native"
+  },
+  "positive carbon": {
+    "sector": "computing",
+    "what": "Funding headline: computing Positive Carbon funding round"
+  },
+  "powerup hydrotech sp z o o": {
+    "sector": "energy",
+    "what": "Funding headline: powerup secures e10 million scale dual use"
+  },
+  "primer": {
+    "sector": "fintech",
+    "what": "Funding headline: uk payments primer e86 2 million c"
+  },
+  "proseed": {
+    "sector": "food",
+    "what": "Funding headline: proseed receives fit loan transform brewing products"
+  },
+  "qa tech": {
+    "sector": "software",
+    "what": "Funding headline: 1 million pre disrupt software testing ai"
+  },
+  "qmill": {
+    "sector": "computing",
+    "what": "Funding headline: qmill e4 million deliver near term industrial"
+  },
+  "quanscient": {
+    "sector": "computing",
+    "what": "Funding headline: quanscient 10m leads shift quantum ai native"
+  },
+  "quantune technologies": {
+    "sector": "computing",
+    "what": "Funding headline: germanys quantune bags 13 5m"
+  },
+  "quicksave interactive": {
+    "sector": "media",
+    "what": "Funding headline: quicksave get money sisu game ventures wave"
+  },
+  "radical health": {
+    "sector": "health",
+    "what": "Funding headline: khosla ventures backed radical health stealth ai"
+  },
+  "raidium": {
+    "sector": "software",
+    "what": "Funding headline: raidium ai assist radiologists"
+  },
+  "reactional music": {
+    "sector": "media",
+    "what": "Funding headline: reactional music closes seven figure"
+  },
+  "realm": {
+    "sector": "software",
+    "what": "Funding headline: ex slush leaders realm secures eur17m ai"
+  },
+  "receipthero": {
+    "sector": "fintech",
+    "what": "Funding headline: receipthero eliminate paper receipts"
+  },
+  "reditus space": {
+    "sector": "space",
+    "what": "Funding headline: exclusive reditus space unveils plans reusable reentry"
+  },
+  "redpine technology": {
+    "sector": "software",
+    "what": "Funding headline: stockholms redpine e6 8 million unlock licensed"
+  },
+  "reduciner": {
+    "sector": "energy",
+    "what": "Funding headline: deep tech reduciner introduces novel technology turn"
+  },
+  "renow": {
+    "sector": "consumer",
+    "what": "Funding headline: renow eur18m disrupt europes second hand market"
+  },
+  "reson8": {
+    "sector": "industrial",
+    "what": "Funding headline: amsterdams reson8 e5 million build speech ai"
+  },
+  "revial": {
+    "sector": "software",
+    "what": "Funding headline: software Revial funding round"
+  },
+  "riact": {
+    "sector": "industrial",
+    "what": "Funding headline: industrial RiACT ApS funding round"
+  },
+  "runlayer": {
+    "sector": "industrial",
+    "what": "Funding headline: runlayer 11m scale enterprise mcp infrastructure"
+  },
+  "scenexus": {
+    "sector": "computing",
+    "what": "Funding headline: scenexus e1 6m lumo labs"
+  },
+  "scoro": {
+    "sector": "software",
+    "what": "Funding headline: estonian founded business management software scoro 5"
+  },
+  "scythe robotics": {
+    "sector": "industrial",
+    "what": "Funding headline: scythe robotics emerges stealth 18 6m transform"
+  },
+  "seaber io": {
+    "sector": "fintech",
+    "what": "Funding headline: fintech Seaber.io funding round"
+  },
+  "seeqc": {
+    "sector": "computing",
+    "what": "Funding headline: seeqc quantum chip cuda"
+  },
+  "sellforte solutions": {
+    "sector": "fintech",
+    "what": "Funding headline: fintech Sellforte Solutions Oy funding round"
+  },
+  "sera": {
+    "sector": "software",
+    "what": "Funding headline: sera ai e1 5 million"
+  },
+  "sitegeist": {
+    "sector": "industrial",
+    "what": "Funding headline: sitegeist e4m pre bring automated ai enabled"
+  },
+  "skyflow": {
+    "sector": "software",
+    "what": "Funding headline: Skyflow 30 Million led Khosla Ventures Data"
+  },
+  "skyfora": {
+    "sector": "energy",
+    "what": "Funding headline: 2186750a f8fd 4d72 8dd3 a4200136fa0b"
+  },
+  "solid immuno oncology": {
+    "sector": "computing",
+    "what": "Funding headline: solid io secures eur800k transform cancer treatment"
+  },
+  "solu": {
+    "sector": "software",
+    "what": "Funding headline: software Solu funding round"
+  },
+  "sourceful labs": {
+    "sector": "energy",
+    "what": "Funding headline: energy Sourceful Labs AB funding round"
+  },
+  "spine energy": {
+    "sector": "energy",
+    "what": "Funding headline: spine muenchner energy sammelt 3 millionen euro"
+  },
+  "spogen": {
+    "sector": "software",
+    "what": "Funding headline: spogen advances ai powered support heavy equipment"
+  },
+  "strise": {
+    "sector": "computing",
+    "what": "Funding headline: computing STRISE AS funding round"
+  },
+  "studio555": {
+    "sector": "media",
+    "what": "Funding headline: app developer studio555 e4 million app that"
+  },
+  "stylus medicine": {
+    "sector": "health",
+    "what": "Funding headline: stylus medicine launches 85m advance 113604095"
+  },
+  "swarmia": {
+    "sector": "software",
+    "what": "Funding headline: swarmia 8m help software development teams deal"
+  },
+  "synergi": {
+    "sector": "computing",
+    "what": "Funding headline: computing Synergi funding round"
+  },
+  "t therapeutics": {
+    "sector": "health",
+    "what": "Funding headline: t therapeutics announces oversubscribed 133 million b"
+  },
+  "tavion": {
+    "sector": "energy",
+    "what": "Funding headline: tavion starts development first battery parks poland"
+  },
+  "terawatt technology": {
+    "sector": "energy",
+    "what": "Funding headline: terawatt technology completes b accelerate pilot production"
+  },
+  "thestorage": {
+    "sector": "energy",
+    "what": "Funding headline: thestorage eur36m scale industrial thermal energy storage"
+  },
+  "tonada": {
+    "sector": "space",
+    "what": "Funding headline: stockholm based tonada lands e2 6 million"
+  },
+  "tozero": {
+    "sector": "energy",
+    "what": "Funding headline: tozero e3 5 million"
+  },
+  "transistors": {
+    "sector": "computing",
+    "what": "Funding headline: finlands s transistors e2 6 million build"
+  },
+  "treble technologies": {
+    "sector": "software",
+    "what": "Funding headline: software Treble Technologies funding round"
+  },
+  "two": {
+    "sector": "fintech",
+    "what": "Funding headline: two eu13m scale b2b payments globally"
+  },
+  "univercell holding": {
+    "sector": "energy",
+    "what": "Funding headline: univercell b dry coating europe battery"
+  },
+  "unmind": {
+    "sector": "health",
+    "what": "Funding headline: unmind closes 47 million b nurture improve"
+  },
+  "upright": {
+    "sector": "software",
+    "what": "Funding headline: upright project 5 million"
+  },
+  "vanta": {
+    "sector": "software",
+    "what": "Funding headline: vanta lands 40m automate cybersecurity compliance"
+  },
+  "vendelux": {
+    "sector": "software",
+    "what": "Funding headline: vendelux 50m b bring ai led intelligence"
+  },
+  "vensum": {
+    "sector": "energy",
+    "what": "Funding headline: start up vensum 3 8 million develop"
+  },
+  "verda": {
+    "sector": "computing",
+    "what": "Funding headline: helsinki based datacrunch io e12 million hyperscale"
+  },
+  "verkor": {
+    "sector": "energy",
+    "what": "Funding headline: grenoble based verkor nabs e100 million develop"
+  },
+  "vertice": {
+    "sector": "fintech",
+    "what": "Funding headline: procurement spend optimisation platform vertice 50m c"
+  },
+  "vetapet group": {
+    "sector": "health",
+    "what": "Funding headline: alvar pet acquires verkkokauppa kivuton partners juuri"
+  },
+  "viome life sciences": {
+    "sector": "health",
+    "what": "Funding headline: viome nabs 15m launch gut microbiome sequencing"
+  },
+  "voi": {
+    "sector": "computing",
+    "what": "Funding headline: voi secures 22 8m"
+  },
+  "volare": {
+    "sector": "food",
+    "what": "Funding headline: volare eur26m advance sustainable insect protein production"
+  },
+  "voltrac": {
+    "sector": "food",
+    "what": "Funding headline: voltrac thor autonomous tractor farming frontline logistics"
+  },
+  "vsim technology": {
+    "sector": "industrial",
+    "what": "Funding headline: vsim 21 5m propel robotics heights"
+  },
+  "whatagraph": {
+    "sector": "software",
+    "what": "Funding headline: leading marketing agencies reporting software whatagraph 7"
+  },
+  "yaga": {
+    "sector": "consumer",
+    "what": "Funding headline: secondhand fashion no longer niche yaga e4"
+  },
+  "zenity": {
+    "sector": "fintech",
+    "what": "Funding headline: zenity lands 125m ai agent security race"
+  },
+  "zerofy": {
+    "sector": "fintech",
+    "what": "Funding headline: fintech Zerofy funding round"
+  },
+  "solace care": {
+    "sector": "health",
+    "what": "End-of-life care platform for aging populations"
+  },
+  "glovoapp23": {
+    "sector": "mobility",
+    "what": "On-demand delivery marketplace spans local services and cities"
+  },
+  "databricks": {
+    "sector": "software",
+    "what": "Data intelligence platform for analytics and artificial intelligence"
+  },
+  "cloudbackend": {
+    "sector": "software",
+    "what": "Cloud backend platform for application development"
+  },
+  "willo": {
+    "sector": "energy",
+    "what": "Alignment-free wireless power for moving devices"
+  },
+  "sonicflora": {
+    "sector": "food",
+    "what": "Plant listening technology supports agricultural crop monitoring"
+  },
+  "homie": {
+    "sector": "software",
+    "what": "B2B introductions platform for modern sales teams"
+  },
+  "inkeep": {
+    "sector": "software",
+    "what": "AI-powered knowledge search and customer support software"
+  },
+  "mailmoo": {
+    "sector": "software",
+    "what": "AI video personalisation for B2B sales"
+  },
+  "brinter am technologies": {
+    "sector": "health",
+    "what": "3D bioprinting for bioscience research"
+  },
+  "coubonga": {
+    "sector": "consumer",
+    "what": "coupon app for consumers"
+  },
+  "cornea sense": {
+    "sector": "health",
+    "what": "eye health diagnostics"
+  },
+  "maculaser": {
+    "sector": "health",
+    "what": "laser treatment for eye disease"
+  },
+  "bind": {
+    "sector": "software",
+    "what": "digital legal services"
+  },
+  "strgy ai": {
+    "sector": "software",
+    "what": "AI strategy execution platform"
+  },
+  "noux digital": {
+    "sector": "software",
+    "what": "B2B sales software"
+  },
+  "soihtu dtx": {
+    "sector": "health",
+    "what": "digital therapeutics for neurological disorders"
+  },
+  "charm industrial": {
+    "sector": "energy",
+    "what": "carbon removal from bio-oil"
+  },
+  "rideriver": {
+    "sector": "mobility",
+    "what": "electric two-wheelers"
+  },
+  "pacific fusion": {
+    "sector": "energy",
+    "what": "fusion energy"
+  },
+  "nevoya": {
+    "sector": "mobility",
+    "what": "electric truck freight fleet"
+  },
+  "quilt": {
+    "sector": "energy",
+    "what": "residential heat pumps"
+  },
+  "renaissance fusion": {
+    "sector": "energy",
+    "what": "fusion energy"
+  },
+  "verdox": {
+    "sector": "energy",
+    "what": "electrochemical carbon capture"
+  },
+  "acembee": {
+    "sector": "software",
+    "what": "construction site compliance automation"
+  },
+  "cerpro": {
+    "sector": "software",
+    "what": "AI quality assurance software"
+  },
+  "clockin": {
+    "sector": "software",
+    "what": "time tracking app for trades"
+  },
+  "unchained robotics": {
+    "sector": "industrial",
+    "what": "factory automation and robotics software"
+  },
+  "resourcly": {
+    "sector": "industrial",
+    "what": "industrial spare-parts inventory marketplace"
+  },
+  "trustnxt": {
+    "sector": "software",
+    "what": "detection of AI-manipulated images"
+  },
+  "exolyt": {
+    "sector": "software",
+    "what": "TikTok social analytics platform"
+  },
+  "tusk ic": {
+    "sector": "computing",
+    "what": "Ka-band satellite chips"
+  },
+  "okapi orbits": {
+    "sector": "space",
+    "what": "space traffic management"
+  },
+  "brella": {
+    "sector": "software",
+    "what": "event networking platform"
+  },
+  "trustmary": {
+    "sector": "software",
+    "what": "testimonial marketing platform"
+  },
+  "gardera": {
+    "sector": "software",
+    "what": "security software"
+  },
+  "my telescope": {
+    "sector": "software",
+    "what": "market intelligence software"
+  },
+  "bookboost": {
+    "sector": "software",
+    "what": "hospitality CRM"
+  },
+  "githits": {
+    "sector": "software",
+    "what": "developer code search"
+  },
+  "groundcover": {
+    "sector": "software",
+    "what": "cloud observability platform"
+  },
+  "zenjob se": {
+    "sector": "consumer",
+    "what": "student job marketplace"
+  },
+  "vyoma": {
+    "sector": "space",
+    "what": "space surveillance"
+  },
+  "getmomo": {
+    "sector": "fintech",
+    "what": "rent deposit alternative"
+  },
+  "bliq": {
+    "sector": "mobility",
+    "what": "app for delivery and ridesharing drivers"
+  },
+  "gama": {
+    "sector": "space",
+    "what": "solar sail spacecraft"
+  },
+  "telura": {
+    "sector": "energy",
+    "what": "geothermal energy"
+  },
+  "smitten technologies": {
+    "sector": "consumer",
+    "what": "dating app"
+  },
+  "tower": {
+    "sector": "software",
+    "what": "platform for data engineers"
+  },
+  "prewave": {
+    "sector": "software",
+    "what": "AI supply chain risk monitoring"
+  },
+  "amber tech": {
+    "sector": "software",
+    "what": "AI business knowledge platform"
+  },
+  "eyeo": {
+    "sector": "computing",
+    "what": "image sensor colour splitting"
+  },
+  "euclyd b v": {
+    "sector": "computing",
+    "what": "AI inference chips"
+  },
+  "euclyd": {
+    "sector": "computing",
+    "what": "AI inference chips"
+  },
+  "constructive bio": {
+    "sector": "health",
+    "what": "engineered cells as biofactories"
+  },
+  "embed security": {
+    "sector": "software",
+    "what": "AI for security analysts"
+  },
+  "avalor ai b v": {
+    "sector": "space",
+    "what": "defence unmanned systems software"
+  },
+  "send ai": {
+    "sector": "software",
+    "what": "document data extraction AI"
+  },
+  "cato": {
+    "sector": "software",
+    "what": "AI for public tenders"
+  },
+  "get mika": {
+    "sector": "fintech",
+    "what": "automated accounting for SMEs"
+  },
+  "corma": {
+    "sector": "software",
+    "what": "software licence and access management"
+  },
+  "neural concept": {
+    "sector": "software",
+    "what": "engineering design AI"
+  },
+  "cloudsmith": {
+    "sector": "software",
+    "what": "software supply chain security"
+  }
+}

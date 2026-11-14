@@ -1,0 +1,492 @@
+{
+ "2c ventures|energy": {
+  "target": "2C Ventures",
+  "sector": "energy",
+  "question": "Has 2C Ventures invested in Energy & climate companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-14",
+  "claims": [
+   {
+    "text": "2C Ventures was founded in 2023 as a cleantech venture capital firm focused on climate‑tech investments.",
+    "url": "https://en.ain.ua/2024/10/18/finnish-greentech-thestorage-secures-eur1m-investment-from-2c-ventures-and-superhero-capital-to-decarbonize-industrial-heat",
+    "site": "en.ain.ua"
+   },
+   {
+    "text": "The firm’s portfolio includes the energy‑ and climate‑related companies ÄIO, TheStorage, Zerofy, GaltTec, Esgrid, Jälle Technologies, Bisly, Renewcast, and CeLLife Technologies, confirming that it has invested in these firms since 2023.",
+    "url": "https://en.ain.ua/2024/10/18/finnish-greentech-thestorage-secures-eur1m-investment-from-2c-ventures-and-superhero-capital-to-decarbonize-industrial-heat",
+    "site": "en.ain.ua"
+   },
+   {
+    "text": "ÄIO received an Other Equity round in September 2024, with 2C Ventures participating, as shown in the investment table.",
+    "url": "https://theventurecodex.com/funds/2c-ventures",
+    "site": "The Venture Codex"
+   }
+  ]
+ },
+ "wave ventures|energy": {
+  "target": "Wave Ventures",
+  "sector": "energy",
+  "question": "Has Wave Ventures invested in Energy & climate companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-14",
+  "claims": [
+   {
+    "text": "Wave Ventures is recorded as having invested in Carbo Culture, an energy‑related clean‑technology company, with a Series A round on 28 Nov 2023.",
+    "url": "https://www.seedtable.com/investors/wave-ventures",
+    "site": "Seedtable: Connect with fast-growing startups at the perfect moment"
+   },
+   {
+    "text": "Carbo Culture’s Series A round raised $18 M and is classified under Clean technology / Carbon removal, confirming the energy‑climate focus of the investment.",
+    "url": "https://www.seedtable.com/investors/wave-ventures",
+    "site": "Seedtable: Connect with fast-growing startups at the perfect moment"
+   },
+   {
+    "text": "Wave Ventures participated in Calectra’s pre‑seed round, a thermal‑energy storage startup, which closed in Aug 2024 and raised $1.6 M.",
+    "url": "https://mercomcapital.com/thermal-energy-storage-startup-calectra-raises-pre-seed-funding",
+    "site": "mercomcapital.com"
+   }
+  ]
+ },
+ "superhero capital|energy": {
+  "target": "Superhero Capital",
+  "sector": "energy",
+  "question": "Has Superhero Capital invested in Energy & climate companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-14",
+  "claims": [
+   {
+    "text": "Superhero Capital’s portfolio includes energy‑related companies such as Cactos, TheStorage, Vapaus and eMabler, confirming its activity in the climate sector after 2023.",
+    "url": "https://vestbee.com/insights/articles/the-storage-secures-1-m",
+    "site": "vestbee.com"
+   },
+   {
+    "text": "Cactos received a €26 M funding round in January 2024 (Series B) with Superhero Capital participating, and a €7 M round in January 2025 led by Union Square Ventures where Superhero Capital was a returning investor.",
+    "url": "https://en.ain.ua/2025/01/30/finnish-startup-cactos-raises-eur-7m",
+    "site": "en.ain.ua"
+   },
+   {
+    "text": "TheStorage raised a €1 M Pre‑Seed round in October 2024 and a €3.6 M Seed round in April 2026; Superhero Capital is listed as a co‑investor in both rounds.",
+    "url": "https://inforcapital.com/companies/thestorage",
+    "site": "InforCapital: Market Intelligence for Private Equity & Venture Capital"
+   }
+  ]
+ },
+ "course corrected|energy": {
+  "target": "Course Corrected",
+  "sector": "energy",
+  "question": "Has Course Corrected invested in Energy & climate companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-14",
+  "claims": []
+ },
+ "wave ventures|computing": {
+  "target": "Wave Ventures",
+  "sector": "computing",
+  "question": "Has Wave Ventures invested in Semiconductors, quantum & photonics companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-14",
+  "claims": [
+   {
+    "text": "The provided facts list Wave Ventures' invested companies, which are all in sectors such as enterprise software, AI, fintech, consumer tech, cleantech, healthtech, and do not include any semiconductor, quantum, or photonics firms.",
+    "url": "https://callsono.com/about/",
+    "site": "callsono.com"
+   },
+   {
+    "text": "The facts also describe Wave Ventures' investment focus as pre‑seed/seed stage technology startups in areas like enterprise software, AI, FinTech, consumer, and emerging tech, without mentioning semiconductor, quantum, or photonics as target industries.",
+    "url": "https://venturecapitalarchive.com/venture-funds/wave-ventures-wave-ventures",
+    "site": "venturecapitalarchive.com"
+   },
+   {
+    "text": "Recent news and deal listings for the last 12 months (2023‑2024) show investments in companies such as Komu Homes, Synergi, Solu, etc., none of which operate in the semiconductor, quantum, or photonics sectors.",
+    "url": "https://tracxn.com/d/venture-capital/wave-ventures/__QluzBLl8WX3CfpIli63aqRswwfCpBxXh9cHHD7nDkdA/team",
+    "site": "Technology & Data for Venture Capital, Corp Dev, Investment Banks"
+   }
+  ]
+ },
+ "nordicninja|computing": {
+  "target": "NordicNinja",
+  "sector": "computing",
+  "question": "Has NordicNinja invested in Semiconductors, quantum & photonics companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-14",
+  "claims": [
+   {
+    "text": "NordicNinja VC’s entity record lists SEEQC among its outgoing INVESTED_IN relationships, confirming that NordicNinja has made an investment in SEEQC.",
+    "url": "https://www.crunchbase.com/funding_round/photoncycle-series-a--f27114b2",
+    "site": "www.crunchbase.com"
+   },
+   {
+    "text": "Press‑release style facts describe a $30 million Series A extension for SEEQC that was co‑led by Booz Allen Ventures and NordicNinja (via NordicNinja Fund II SCSp) and announced on 15 January 2025.",
+    "url": "https://www.washingtontechnology.com/companies/2025/01/seeqc-closes-30m-investment-round/402202",
+    "site": "Washington Technology"
+   },
+   {
+    "text": "The investment is classified under application‑specific semiconductors / quantum computing, matching the query’s focus on semiconductors, quantum and photonics.",
+    "url": "https://igpi-group.com/en/news/news_20250121",
+    "site": "igpi-group.com"
+   }
+  ]
+ },
+ "maki|computing": {
+  "target": "Maki.vc",
+  "sector": "computing",
+  "question": "Has Maki.vc invested in Semiconductors, quantum & photonics companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-14",
+  "claims": [
+   {
+    "text": "Maki.vc led a €3.9 M seed round for Quanscient in April 2023, establishing its first post‑2023 investment in a quantum‑enabled simulation company.",
+    "url": "https://en.ain.ua/2023/04/20/quanscient-raises-3-9m",
+    "site": "en.ain.ua"
+   },
+   {
+    "text": "In November 2024 Quanscient raised €5.2 M growth funding; Maki.vc participated as a follow‑on investor, confirming continued support in a later round.",
+    "url": "https://paaomasijoittajat.fi/en/ajankohtaista/news/28075/suomalaiselle-kvanttialgoritmien-edellakavija-quanscientille-52-miljoonan-euron-rahoitus-kvanttialgoritmeilla-ennennakematonta-tehoa-teollisuuden-tuotekehitykseen",
+    "site": "Etusivu - Pääomasijoittajat"
+   },
+   {
+    "text": "Quanscient’s €10 M Series A in May 2026 listed Maki.vc among the investors, showing its involvement in a later, larger round.",
+    "url": "https://www.mapco.ai/company/quanscient",
+    "site": "MapCo AI Deal Intelligence"
+   }
+  ]
+ },
+ "first fellow|computing": {
+  "target": "First Fellow Partners",
+  "sector": "computing",
+  "question": "Has First Fellow Partners invested in Semiconductors, quantum & photonics companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-14",
+  "claims": [
+   {
+    "text": "First Fellow Partners is a venture capital firm that makes early‑stage investments, as indicated by its organization description and list of invested‑in companies.",
+    "url": "https://www.startbase.com/news/13-millionen-euro-pre-seed-fuer-europaeisches-startup-elva",
+    "site": "startbase.com"
+   },
+   {
+    "text": "Among the companies First Fellow Partners has invested in is Quanscient Oy, a Finnish quantum‑focused simulation startup.",
+    "url": "https://www.startbase.com/news/13-millionen-euro-pre-seed-fuer-europaeisches-startup-elva",
+    "site": "startbase.com"
+   },
+   {
+    "text": "Quanscient raised an Early VC round of €5.2 million on 1 Nov 2024, with First Fellow Partners participating as a follow‑on investor.",
+    "url": "https://tech.eu/2024/11/05/quanscient-secures-5-2m-for-quantum-algorithms-driven-platform",
+    "site": "Tech.eu - European Startup, Funding and Technology News"
+   }
+  ]
+ },
+ "lifeline ventures|energy": {
+  "target": "Lifeline Ventures",
+  "sector": "energy",
+  "question": "Has Lifeline Ventures invested in Energy & climate companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-14",
+  "claims": [
+   {
+    "text": "Lifeline Ventures led the €1.7 M seed round for Vensum Power in May 2023, confirming its investment in an energy‑focused company that year.",
+    "url": "https://tech.eu/2023/05/26/finnish-start-up-vensum-raises-3-8-million-to-develop-software-controlled-power-converters",
+    "site": "Tech.eu - European Startup, Funding and Technology News"
+   },
+   {
+    "text": "Lifeline Ventures co‑led Vensum Power’s €9 M Series A round in November 2026, showing continued backing of the same energy conversion startup.",
+    "url": "https://paaomasijoittajat.fi/en/ajankohtaista/news/33174/finnish-deep-tech-company-vensum-power-raises-e9-million-to-bring-near-lossless-power-conversion-to-ai-data-centers-ev-charging-and-energy-storage",
+    "site": "Etusivu - Pääomasijoittajat"
+   },
+   {
+    "text": "Intergrid received a €1 M pre‑seed investment from Lifeline Ventures in September 2023, confirming a 2023 energy‑software investment.",
+    "url": "https://nordic9.com/news/intergrid-was-pre-seeded-with-1m-by-lifeline-ventures-and-investors-in-finland",
+    "site": "Discover what happens on the European investment scene"
+   }
+  ]
+ },
+ "nordicninja|energy": {
+  "target": "NordicNinja",
+  "sector": "energy",
+  "question": "Has NordicNinja invested in Energy & climate companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-14",
+  "claims": [
+   {
+    "text": "NordicNinja participated as a co‑lead investor in the €5.5 million seed round for Arbonics in December 2023, marking its first energy‑climate investment after the fund launch.",
+    "url": "https://www.arbonics.com/knowledge-hub/arbonics-seed-fundraise-to-scale-forest-carbon-removal-platform",
+    "site": "arbonics.com"
+   },
+   {
+    "text": "In June 2024, NordicNinja led the €25 million Series B round for LiveEO, an AI‑satellite data company focused on climate‑risk management.",
+    "url": "https://bebeez.eu/2024/06/26/berlin-based-liveeo-raises-e25-million-series-b-to-leverage-satellite-data-to-make-industries-more-sustainable",
+    "site": "EYE NEWSFLASH: Bruce brothers back in the game with surprise Purplebricks return"
+   },
+   {
+    "text": "NordicNinja was the lead investor in the €11 million seed round for tozero in November 2024, supporting lithium‑ion battery recycling for a circular economy.",
+    "url": "https://www.munich-startup.de/en/105971/tozero-seed-financing",
+    "site": "Munich Startup - Das offizielle Startup Portal für München und die Region"
+   }
+  ]
+ },
+ "butterfly ventures|energy": {
+  "target": "Butterfly Ventures",
+  "sector": "energy",
+  "question": "Has Butterfly Ventures invested in Energy & climate companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-14",
+  "claims": [
+   {
+    "text": "Butterfly Ventures is listed as an investor in Retein, which closed a €970 k Seed round in April 2023, confirming the investment after 2023.",
+    "url": "https://creoir.com/seed-funding-for-international-growth/",
+    "site": "creoir.com"
+   },
+   {
+    "text": "Butterfly Ventures participated in CooliBlade’s funding, with the company reporting €1.7 M additional financing in December 2024 and listing Butterfly Ventures among its investors.",
+    "url": "https://deeptechfinland.fi/c/cooliblade.html",
+    "site": "Deeptech Finland"
+   },
+   {
+    "text": "DREV’s Seed round on 5 Nov 2025 lists Butterfly Ventures as an investor, confirming a post‑2023 investment in the energy‑related battery‑cleaning startup.",
+    "url": "https://tracxn.com/d/companies/drev/__z-6gvVYtHcDJYzRnx7C7pCl7HjkoUm1hp5pfeKk5tMU/funding-and-investors",
+    "site": "Technology & Data for Venture Capital, Corp Dev, Investment Banks"
+   }
+  ]
+ },
+ "voima ventures|industrial": {
+  "target": "Voima Ventures",
+  "sector": "industrial",
+  "question": "Has Voima Ventures invested in Industrial tech, robotics & materials companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-14",
+  "claims": [
+   {
+    "text": "Voima Ventures invested in Cellfion in a Series A round in September 2026, as shown by the financing round details and Voima being listed as a major shareholder.",
+    "url": "https://www.nyteknik.se/startup/33-listan-2026-haer-aer-sveriges-baesta-unga-teknikbolag/4511950",
+    "site": "Ny Teknik – startsida"
+   },
+   {
+    "text": "Voima Ventures participated in the equity round for Westra Materials in September 2025, with the round size of SEK 42 million and co‑investors including Lotus Singapore Group.",
+    "url": "https://nordic9.com/news/westra-materials-raised-sek-42-million-with-voima-ventures-and-lotus-singapore-group-as-well-as-existing-investors-navigare-and-almi-invest",
+    "site": "Discover what happens on the European investment scene"
+   },
+   {
+    "text": "The Human Touch Robotics received a seed investment of about $1.9 M, with Voima Ventures listed among the investors.",
+    "url": "https://www.vcbacked.co/directory/investors/voima-ventures/page/2",
+    "site": "VCBacked - Find venture funded startups for your business"
+   }
+  ]
+ },
+ "eviny ventures|industrial": {
+  "target": "Eviny Ventures",
+  "sector": "industrial",
+  "question": "Has Eviny Ventures invested in Industrial tech, robotics & materials companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-14",
+  "claims": [
+   {
+    "text": "Eviny Ventures is identified as a corporate venture arm that invests in early‑stage companies in the Frontier & Industrial Tech sector.",
+    "url": "https://www.caplight.com/investor/eviny-no",
+    "site": "The Private Market at your Fingertips"
+   },
+   {
+    "text": "The portfolio list for Eviny Ventures shows it has invested in Voltfang, Photoncycle, Birdsview, Vensum Power and Sensa, confirming these companies are part of its holdings since 2023.",
+    "url": "https://pitchbook.com/profiles/company/494579-44",
+    "site": "pitchbook.com"
+   },
+   {
+    "text": "Voltfang received a €5 million Seed round in May 2023, with Eviny Ventures listed among the participants, matching the answer’s claim of a Seed investment in 2023.",
+    "url": "https://en.ain.ua/2023/05/10/helen-ventures-5m-round-for-voltfang",
+    "site": "en.ain.ua"
+   }
+  ]
+ },
+ "greencode ventures|industrial": {
+  "target": "Greencode Ventures",
+  "sector": "industrial",
+  "question": "Has Greencode Ventures invested in Industrial tech, robotics & materials companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-14",
+  "claims": [
+   {
+    "text": "Greencode Ventures’ portfolio data shows it has invested in the companies Cronvall and Groundhawk, both of which operate in industrial‑tech related domains.",
+    "url": "https://thenextweb.com/news/liveeo-28m-funding-civil-infrastructure-defence-twinspector",
+    "site": "thenextweb.com"
+   },
+   {
+    "text": "The funding table records a €3.9 million seed round for Cronvall in November 2025, with Greencode Ventures listed as the lead investor.",
+    "url": "https://theventurecodex.com/funds/greencode-ventures",
+    "site": "The Venture Codex"
+   },
+   {
+    "text": "Cronvall is described as a digital procurement platform for industrial and construction companies, placing it squarely in the industrial‑tech & materials category.",
+    "url": "https://arcticstartup.com/cronvall-raises-e3-9m?amp=1",
+    "site": "arcticstartup.com"
+   }
+  ]
+ },
+ "wave ventures|industrial": {
+  "target": "Wave Ventures",
+  "sector": "industrial",
+  "question": "Has Wave Ventures invested in Industrial tech, robotics & materials companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-14",
+  "claims": [
+   {
+    "text": "Wave Ventures’ portfolio data shows it has invested in the company Willo, confirming Wave Ventures as an investor in that startup.",
+    "url": "https://nordic9.com/news/carbo-culture-gets-funded-by-wave-ventures-news3447712868",
+    "site": "nordic9.com"
+   },
+   {
+    "text": "Willo is described as a deep‑tech Finnish company developing alignment‑free wireless power transmission, a technology that directly addresses robotics, industrial automation and spatial computing applications.",
+    "url": "https://inforcapital.com/companies/willo",
+    "site": "InforCapital: Market Intelligence for Private Equity & Venture Capital"
+   },
+   {
+    "text": "Willo’s funding history records a Pre‑Seed round in February 2026 amounting to €2.9 M (≈$3.1 M), led by byFounders, with Wave Ventures listed among the co‑investors.",
+    "url": "https://www.startupreporter.eu/willo-raises-e2-9m-pre-seed-to-scale-alignment-free-wireless-power/",
+    "site": "startupreporter.eu"
+   }
+  ]
+ },
+ "eic|energy": {
+  "target": "EIC Fund",
+  "sector": "energy",
+  "question": "Has EIC Fund invested in Energy & climate companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-14",
+  "claims": [
+   {
+    "text": "The EIC Fund participated in Modvion’s equity round (Series A) in January 2023, investing alongside Vestas Ventures and others, confirming an Energy investment in 2023.",
+    "url": "https://nordic9.com/news/modvion-to-raise-sek-125-million-in-an-equity-round-backed-by-vestas-ventures-course-corrected-symbia-vc-almi-invest-and-the-eic-fund",
+    "site": "Discover what happens on the European investment scene"
+   },
+   {
+    "text": "The Fund invested €15 million in an early‑VC round for STABL Energy GmbH in August 2023, showing continued Energy sector support that year.",
+    "url": "https://app.dealroom.co/companies/stabl_energy",
+    "site": "app.dealroom.co"
+   },
+   {
+    "text": "Reverion received an equity investment from the EIC Fund as part of its Series A round (USD 62 million) in 2024, confirming a Climate‑Tech investment.",
+    "url": "https://www.oppenhoff.eu/en/news/detail/oppenhoff-advises-eic-fund-on-usd-62-million-series-a-financing-round-of-reverion",
+    "site": "Oppenhoff: Ihre Wirtschaftskanzlei in Köln & Frankfurt - Oppenhoff"
+   }
+  ]
+ },
+ "khosla ventures|software": {
+  "target": "Khosla Ventures",
+  "sector": "software",
+  "question": "Has Khosla Ventures invested in Software & AI companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-15",
+  "claims": [
+   {
+    "text": "Khosla Ventures participated as a seed investor in Sakana AI in January 2024, investing $30M.",
+    "url": "https://aifunding.me/insights/khosla-ventures-ai-portfolio-analysis",
+    "site": "AI Funding - AI Venture Funding Tracker"
+   },
+   {
+    "text": "Khosla led the Series D extension round for Ramp in April 2024, contributing $150M.",
+    "url": "https://aifunding.me/insights/khosla-ventures-ai-portfolio-analysis",
+    "site": "AI Funding - AI Venture Funding Tracker"
+   },
+   {
+    "text": "Khosla led the Series D round for Glean in August 2024, investing $200M.",
+    "url": "https://aifunding.me/insights/khosla-ventures-ai-portfolio-analysis",
+    "site": "AI Funding - AI Venture Funding Tracker"
+   }
+  ]
+ },
+ "eqt ventures|software": {
+  "target": "EQT Ventures",
+  "sector": "software",
+  "question": "Has EQT Ventures invested in Software & AI companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-15",
+  "claims": [
+   {
+    "text": "EQT Ventures’ III fund, launched in 2023, focuses on early‑stage minority equity investments in software and AI companies, confirming activity from 2023 onward.",
+    "url": "https://eqtgroup.com/about/current-portfolio/funds/eqt-ventures-iii#main-content",
+    "site": "Creating value that creates more value."
+   },
+   {
+    "text": "The firm’s portfolio entries show multiple software/AI companies entered in 2023, such as Fly.io, Payrails, Qevlar AI, and evroc, demonstrating investments beginning that year.",
+    "url": "https://app.dealroom.co/companies/cleo",
+    "site": "app.dealroom.co"
+   },
+   {
+    "text": "Parloa received a Series D round of $350 M in January 2026, as recorded in the investment table.",
+    "url": "https://www.tipranks.com/private-companies/investor/eqt-ventures",
+    "site": "tipranks.com"
+   }
+  ]
+ },
+ "creandum|software": {
+  "target": "Creandum",
+  "sector": "software",
+  "question": "Has Creandum invested in Software & AI companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-15",
+  "claims": [
+   {
+    "text": "Creandum’s portfolio data shows it invested in Unitary in 2023, a Series A round of €15 M for AI/content moderation.",
+    "url": "https://www.vcbacked.co/directory/investors/creandum?page=2",
+    "site": "VCBacked - Find venture funded startups for your business"
+   },
+   {
+    "text": "Creandum’s records list Cast AI as an AI infrastructure company with a Series B round in 2023 (≈$35 M).",
+    "url": "https://www.startup.eu/investors/3kq6xG",
+    "site": "Europe’s Most Complete Startup Investment Tracker"
+   },
+   {
+    "text": "In 2024 Creandum backed Embat (AI‑treasury management) in a Series A round of €15.9 M.",
+    "url": "https://www.vcbacked.co/directory/investors/creandum?page=2",
+    "site": "VCBacked - Find venture funded startups for your business"
+   }
+  ]
+ },
+ "sequoia capital|software": {
+  "target": "Sequoia Capital",
+  "sector": "software",
+  "question": "Has Sequoia Capital invested in Software & AI companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-15",
+  "claims": [
+   {
+    "text": "Sequoia Capital announced a $7 billion expansion fund in 2026 that is dedicated to AI and late‑stage technology companies, confirming its strategic focus on AI investments since 2023.",
+    "url": "https://inforcapital.com/news/sequoia-raises-7bn-expansion-fund-to-double-down-on-ai-and-late-stage-bets",
+    "site": "InforCapital: Market Intelligence for Private Equity & Venture Capital"
+   },
+   {
+    "text": "The fund’s AI focus is reflected in Sequoia’s participation in high‑profile AI rounds such as OpenAI, Anthropic and xAI, as highlighted in the fund announcement.",
+    "url": "https://inforcapital.com/news/sequoia-raises-7bn-expansion-fund-to-double-down-on-ai-and-late-stage-bets",
+    "site": "InforCapital: Market Intelligence for Private Equity & Venture Capital"
+   },
+   {
+    "text": "Sequoia led the Series B round for OpenAI in April 2023, investing $300 M at a $29 B valuation.",
+    "url": "https://aifunding.me/insights/sequoia-capital-ai-portfolio-analysis",
+    "site": "AI Funding - AI Venture Funding Tracker"
+   }
+  ]
+ },
+ "lightspeed venture|software": {
+  "target": "Lightspeed Venture Partners",
+  "sector": "software",
+  "question": "Has Lightspeed Venture Partners invested in Software & AI companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-15",
+  "claims": [
+   {
+    "text": "Lightspeed Venture Partners led the $3.5 B Series E round for Anthropic in March 2025 and co‑led the $13 B Series F round in September 2025, confirming its participation in major frontier AI funding since 2023.",
+    "url": "https://tracxn.com/d/companies/anthropic/__SzoxXDMin-NK5tKB7ks8yHr6S9Mz68pjVCzFEcGFZ08/funding-and-investors#investors",
+    "site": "Technology & Data for Venture Capital, Corp Dev, Investment Banks"
+   },
+   {
+    "text": "Lightspeed co‑led the $113 M seed round for Mistral AI in June 2023 and led its $415 M Series A in December 2023, showing early‑stage AI investments from 2023 onward.",
+    "url": "https://tracxn.com/d/companies/anthropic/__SzoxXDMin-NK5tKB7ks8yHr6S9Mz68pjVCzFEcGFZ08/funding-and-investors#investors",
+    "site": "Technology & Data for Venture Capital, Corp Dev, Investment Banks"
+   },
+   {
+    "text": "Lightspeed co‑invested in the $1 B seed round for Reflection AI in September 2025, demonstrating continued backing of AI infrastructure startups.",
+    "url": "https://www.tipranks.com/private-companies/investor/lightspeed-venture-partners",
+    "site": "tipranks.com"
+   }
+  ]
+ },
+ "antler|software": {
+  "target": "Antler",
+  "sector": "software",
+  "question": "Has Antler invested in Software & AI companies since 2023? Name the companies and rounds. Cite sources.",
+  "asked": "2026-11-15",
+  "claims": [
+   {
+    "text": "Antler was identified by Dealroom as the most active global AI investor of 2024 and made over 400 investments in 2025, confirming its continued focus on AI and software companies since 2023.",
+    "url": "https://www.wsj.com/articles/venture-firm-antler-made-over-400-investments-last-yearand-just-reloaded-with-160-million-25ed800b",
+    "site": "wsj.com"
+   },
+   {
+    "text": "Antler’s portfolio includes multiple software and AI companies such as Lovable, Peec AI, Capsa AI, Cloudgeni, Loman AI, and TrustAI, showing active investment in this sector after 2023.",
+    "url": "https://www.vcbacked.co/directory/investors/antler?page=40",
+    "site": "Antler Portfolio — 1,008 Companies & Co-Investors (2026)"
+   },
+   {
+    "text": "Lovable received a pre‑seed round in October 2024 (co‑led by Hummingbird Ventures and byFounders) with Antler participating, demonstrating Antler’s early‑stage software investment.",
+    "url": "https://multiples.vc/private-comps/lovable",
+    "site": "Multiples.vc - Public Comps and Valuation Multiples"
+   }
+  ]
+ }
+}
